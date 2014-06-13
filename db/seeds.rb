@@ -445,7 +445,7 @@ end
 
 baseball_team_games = []
 baseball_teams_array.each do |team|
-  CSV.foreach("lib/assets/baseball/#{year}/#{team[0][0..1]}/#{team[0][3..5]}") do |row|
+  CSV.foreach("lib/assets/baseball/#{year}/#{team[0][0..1]}/#{team[0][3..5]}.csv") do |row|
     teams = row[3].split(" at ")
     address = []
     baseball_stadium_array.each do |stadium|

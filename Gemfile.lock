@@ -40,6 +40,9 @@ GEM
     coffee-script-source (1.7.0)
     erubis (2.7.0)
     execjs (2.2.0)
+    foundation-rails (5.2.2.0)
+      railties (>= 3.1.0)
+      sass (>= 3.2.0)
     hike (1.2.3)
     httparty (0.13.1)
       json (~> 1.8)
@@ -128,6 +131,7 @@ PLATFORMS
 DEPENDENCIES
   bcrypt (~> 3.1.7)
   coffee-rails (~> 4.0.0)
+  foundation-rails
   httparty
   jbuilder (~> 2.0)
   jquery-rails

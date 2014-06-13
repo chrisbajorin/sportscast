@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: MyString
+  away_team: MyString
+  home_team: MyString
+  time: MyString
+  city: MyString
+  state: MyString
+  zip: MyString
+
+two:
+  date: MyString
+  away_team: MyString
+  home_team: MyString
+  time: MyString
+  city: MyString
+  state: MyString
+  zip: MyString

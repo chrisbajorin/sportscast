@@ -1,3 +1,6 @@
+require 'csv'
+require 'open-uri'
+
 Football.delete_all
 
 string = "1,Thu,September 4,Green Bay Packers,Seattle Seahawks,8:30 PM

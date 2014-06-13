@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
 
-  # root "welcome#index"
   root "users#new"
+
+  resources :baseballs
+
+  # root "welcome#index"
 
   resources :footballs
   resources :users

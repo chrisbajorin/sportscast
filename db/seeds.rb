@@ -2,6 +2,45 @@ require 'csv'
 require 'open-uri'
 
 Football.delete_all
+Baseball.delete_all
+
+year = "2014"
+
+baseball_stadium_array = [
+["Oriole Park at Camden Yards", "Baltimore", "MD", "21201"],
+["Angel Stadium of Anaheim", "Anaheim", "CA", "92806"],
+["Fenway Park", "Boston", "MA", "02215"],
+["Progressive Field", "Cleveland", "OH", "44115"],
+["U.S. Cellular Field", "Chicago", "IL", "60616"],
+["Comerica Park", "Detroit", "MI", "48201"],
+["Minute Maid Park", "Houston", "TX", "77002"],
+["Kauffman Stadium", "Kansas City", "MO", "64129"],
+["Target Field", "Minneapolis", "MN", "55403"],
+["Yankee Stadium", "Bronx", "NY", "10451"],
+["O.co Coliseum", "Oakland", "CA", "94621"],
+["Safeco Field", "Seattle", "WA", "98134"],
+["Tropicana Field", "St Petersburg", "FL", "33705"],
+["Globe Life Park in Arlington", "Arlington", "TX", "76011"],
+["Rogers Centre", "Toronto", "ON", "CA"],
+["Chase Field", "Phoenix", "AZ", "85004"],
+["Turner Field", "Atlanta", "GA", "30315"],
+["Wrigley Field", "Chicago", "IL", "60613"],
+["Great American Ball Park", "Cincinnati", "OH", "45202"],
+["Coors Field", "Denver", "CO", "80205"],
+["Dodger Stadium", "Los Angeles", "CA", "90012"],
+["Marlins Park", "Miami", "FL", "33125"],
+["Miller Park", "Milwaukee", "WI", "53214"],
+["Citi Field", "New York", "NY", "11368"],
+["Citizens Bank Park", "Philadelphia", "PA", "19148"],
+["PNC Park", "Pittsburgh", "PA", "15212"],
+["Petco Park", "San Diego", "CA", "92101"],
+["AT&T Park", "San Francisco", "CA", "94107"],
+["Busch Stadium", "St Louis", "MO", "63102"],
+["Nationals Park", "Washington", "DC", "20003"]
+]
+
+baseball_teams_array = [["al_bal", "110"], ["al_bos", "111"], ["al_cws", "145"], ["al_cle", "114"], ["al_det", "116"], ["al_hou", "117"], ["al_kc", "118"], ["al_ana", "108"], ["al_min", "142"], ["al_nyy", "147"], ["al_oak", "133"], ["al_sea", "136"], ["al_tb", "139"], ["al_tex", "140"], ["al_tor", "141"], ["nl_ari", "109"], ["nl_atl", "144"], ["nl_chc", "112"], ["nl_cin", "113"], ["nl_col", "115"], ["nl_la", "119"], ["nl_mia", "146"], ["nl_mil", "158"], ["nl_nym", "121"], ["nl_phi", "143"], ["nl_pit", "134"], ["nl_sd", "135"], ["nl_sf", "137"], ["nl_stl", "138"], ["nl_was", "120"]]
+
 
 string = "1,Thu,September 4,Green Bay Packers,Seattle Seahawks,8:30 PM
 1,Sun,September 7,New Orleans Saints,Atlanta Falcons,1:00 PM
@@ -296,110 +335,139 @@ end
 season_array.each do |team|
   if team[4] == "Baltimore"
     team << "MD"
-    team << 21218
+    team << "21218"
   elsif team[4] == "Cincinnati"
     team << "OH"
-    team << 45214
+    team << "45214"
   elsif team[4] == "Cleveland"
     team << "OH"
-    team << 44109
+    team << "44109"
   elsif team[4] == "Pittsburgh"
     team << "PA"
-    team << 15210
+    team << "15210"
   elsif team[4] == "Chicago"
     team << "IL"
-    team << 60623
+    team << "60623"
   elsif team[4] == "Detroit"
     team << "MI"
-    team << 48227
+    team << "48227"
   elsif team[4] == "Green Bay"
     team << "WI"
-    team << 54301
+    team << "54301"
   elsif team[4] == "Minneapolis"
     team << "MN"
-    team << 55405
+    team << "55405"
   elsif team[4] == "Houston"
     team << "TX"
-    team << 77056
+    team << "77056"
   elsif team[4] == "Indianapolis"
     team << "IN"
-    team << 46204
+    team << "46204"
   elsif team[4] == "Jacksonville"
     team << "FL"
-    team << 32202
+    team << "32202"
   elsif team[4] == "Nashville"
     team << "TN"
-    team << 37201
+    team << "37201"
   elsif team[4] == "Buffalo"
     team << "NY"
-    team << 14127
+    team << "14127"
   elsif team[4] == "Miami"
     team << "FL"
-    team << 33010
+    team << "33010"
   elsif team[4] == "Foxborough"
     team << "MA"
-    team << 02035
+    team << "02035"
   elsif team[4] == "New York"
     team << "NY"
-    team << 10010
+    team << "10010"
   elsif team[4] == "Denver"
     team << "CO"
-    team << 80204
+    team << "80204"
   elsif team[4] == "Kansas City"
     team << "MO"
-    team << 64129
+    team << "64129"
   elsif team[4] == "Oakland"
     team << "CA"
-    team << 94621
+    team << "94621"
   elsif team[4] == "San Diego"
     team << "CA"
-    team << 92108
+    team << "92108"
   elsif team[4] == "Atlanta"
     team << "GA"
-    team << 30313
+    team << "30313"
   elsif team[4] == "Charlotte"
     team << "NC"
-    team << 28202
+    team << "28202"
   elsif team[4] == "New Orleans"
     team << "LA"
-    team << 70112
+    team << "70112"
   elsif team[4] == "Tampa Bay"
     team << "FL"
-    team << 33607
+    team << "33607"
   elsif team[4] == "Dallas"
     team << "TX"
-    team << 75032
+    team << "75032"
   elsif team[4] == "Philadelphia"
     team << "PA"
-    team << 19148
+    team << "19148"
   elsif team[4] == "Washington"
     team[4] = "Landover"
     team << "MD"
-    team << 20785
+    team << "20785"
   elsif team[4] == "Glendale"
     team << "AZ"
-    team << 85305
+    team << "85305"
   elsif team[4] == "San Francisco"
     team[4] = "Santa Clara"
     team << "CA"
-    team << 95050
+    team << "95050"
   elsif team[4] == "Seattle"
     team << "WA"
-    team << 98134
+    team << "98134"
   elsif team[4] == "St. Louis"
     team << "MO"
-    team << 63101
+    team << "63101"
   end
 end
 
 season_array.each do |game|
   Football.create({
     date: game[0],
-    home_team: game[1],
-    away_team: game[2],
+    away_team: game[1],
+    home_team: game[2],
     time: game[3],
     city: game[4],
     state: game[5],
     zip: game[6]
     })
 end
+
+baseball_team_games = []
+baseball_teams_array.each do |team|
+  CSV.foreach("lib/assets/baseball/#{year}/#{team[0][0..1]}/#{team[0][3..5]}.csv") do |row|
+    teams = row[3].split(" at ")
+    address = []
+    baseball_stadium_array.each do |stadium|
+      if stadium[0] == row[4]
+        address[0] = stadium[1]
+        address[1] = stadium[2]
+        address[2] = stadium[3]
+      end
+    end
+
+    game = Baseball.new({
+      date: row[0],
+      away_team: teams[0],
+      home_team: teams[1],
+      time: row[1],
+      city: address[0],
+      state: address[1],
+      zip: address[2],
+      })
+    if game[:zip] != nil
+      game.save
+    end
+  end
+end
+

@@ -64,5 +64,3 @@ Welcome to our app  **SPORTSCAST**. Our aim is to give users a general idea of w
 
 
 
-
-

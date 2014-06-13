@@ -1,5 +1,14 @@
 <h1>Listing footballs</h1>
 
+<a href="#" data-reveal-id="myModal" class="button tiny">CALENDAR of events</a>
+
+<div id="myModal" class="reveal-modal" data-reveal>
+  <h2>CALENDAR</h2>
+  <p class="lead">CALENDAR goes here</p>
+  <p>Anything can go here really. Just testing this out and seeing how modals work. A possibility for sure.</p>
+  <a class="close-reveal-modal">&#215;</a>
+</div>
+
 <table>
   <thead>
     <tr>
@@ -24,9 +33,9 @@
         <td><%= football.city %></td>
         <td><%= football.state %></td>
         <td><%= football.zip %></td>
-        <td><%= link_to 'Show', football %></td>
-        <td><%= link_to 'Edit', edit_football_path(football) %></td>
-        <td><%= link_to 'Destroy', football, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class="button tiny"><%= link_to 'Show', football %></td>
+        <td class="button tiny"><%= link_to 'Edit', edit_football_path(football) %></td>
+        <td class="button tiny"><%= link_to 'Destroy', football, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

@@ -1,0 +1,37 @@
+<h1>Listing footballs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Away team</th>
+      <th>Home team</th>
+      <th>Time</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Zip</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @footballs.each do |football| %>
+      <tr>
+        <td><%= football.date %></td>
+        <td><%= football.away_team %></td>
+        <td><%= football.home_team %></td>
+        <td><%= football.time %></td>
+        <td><%= football.city %></td>
+        <td><%= football.state %></td>
+        <td><%= football.zip %></td>
+        <td><%= link_to 'Show', football %></td>
+        <td><%= link_to 'Edit', edit_football_path(football) %></td>
+        <td><%= link_to 'Destroy', football, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Football', new_football_path %>

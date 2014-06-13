@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
-  root 'welcome#index'
-  resources :sports
-  resources :weather
+  root "welcome#index"
+
+  resources :footballs
 
 end

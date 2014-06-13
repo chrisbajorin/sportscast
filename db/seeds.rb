@@ -1,3 +1,4 @@
+Football.delete_all
 
 string = "1,Thu,September 4,Green Bay Packers,Seattle Seahawks,8:30 PM
 1,Sun,September 7,New Orleans Saints,Atlanta Falcons,1:00 PM
@@ -257,10 +258,145 @@ string = "1,Thu,September 4,Green Bay Packers,Seattle Seahawks,8:30 PM
 17,Sun,December 28,Arizona Cardinals,San Francisco 49ers,4:25 PM"
 array = []
 season_array = []
+game_array = []
+temp = []
 array = string.split("\n")
 array.each do |game|
   game_array = game.split(",")
-  game_array.pop
-  game_array(0).delete_at(0)
+  game_array.delete_at(0)
+  game_array.delete_at(0)
+  temp = game_array[2].split(" ")
+  if temp.length == 3
+    temp.pop
+    game_array << temp.join(" ")
+  elsif temp.length == 2
+    temp.pop
+    game_array << temp.join(" ")
+  end
   season_array << game_array
+end
+
+season_array.each do |game|
+  if game[4] == "Minnesota"
+    game[4] = "Minneapolis"
+  elsif game[4] == "Carolina"
+    game[4] = "Charlotte"
+  elsif game[4] == "Tennessee"
+    game[4] = "Nashville"
+  elsif game[4] == "New England"
+    game[4] = "Foxborough"
+  elsif game[4] == "Arizona"
+    game[4] = "Glendale"
+  end
+end
+
+season_array.each do |team|
+  if team[4] == "Baltimore"
+    team << "MD"
+    team << 21218
+  elsif team[4] == "Cincinnati"
+    team << "OH"
+    team << 45214
+  elsif team[4] == "Cleveland"
+    team << "OH"
+    team << 44109
+  elsif team[4] == "Pittsburgh"
+    team << "PA"
+    team << 15210
+  elsif team[4] == "Chicago"
+    team << "IL"
+    team << 60623
+  elsif team[4] == "Detroit"
+    team << "MI"
+    team << 48227
+  elsif team[4] == "Green Bay"
+    team << "WI"
+    team << 54301
+  elsif team[4] == "Minneapolis"
+    team << "MN"
+    team << 55405
+  elsif team[4] == "Houston"
+    team << "TX"
+    team << 77056
+  elsif team[4] == "Indianapolis"
+    team << "IN"
+    team << 46204
+  elsif team[4] == "Jacksonville"
+    team << "FL"
+    team << 32202
+  elsif team[4] == "Nashville"
+    team << "TN"
+    team << 37201
+  elsif team[4] == "Buffalo"
+    team << "NY"
+    team << 14127
+  elsif team[4] == "Miami"
+    team << "FL"
+    team << 33010
+  elsif team[4] == "Foxborough"
+    team << "MA"
+    team << 02035
+  elsif team[4] == "New York"
+    team << "NY"
+    team << 10010
+  elsif team[4] == "Denver"
+    team << "CO"
+    team << 80204
+  elsif team[4] == "Kansas City"
+    team << "MO"
+    team << 64129
+  elsif team[4] == "Oakland"
+    team << "CA"
+    team << 94621
+  elsif team[4] == "San Diego"
+    team << "CA"
+    team << 92108
+  elsif team[4] == "Atlanta"
+    team << "GA"
+    team << 30313
+  elsif team[4] == "Charlotte"
+    team << "NC"
+    team << 28202
+  elsif team[4] == "New Orleans"
+    team << "LA"
+    team << 70112
+  elsif team[4] == "Tampa Bay"
+    team << "FL"
+    team << 33607
+  elsif team[4] == "Dallas"
+    team << "TX"
+    team << 75032
+  elsif team[4] == "Philadelphia"
+    team << "PA"
+    team << 19148
+  elsif team[4] == "Washington"
+    team[4] = "Landover"
+    team << "MD"
+    team << 20785
+  elsif team[4] == "Glendale"
+    team << "AZ"
+    team << 85305
+  elsif team[4] == "San Francisco"
+    team[4] = "Santa Clara"
+    team << "CA"
+    team << 95050
+  elsif team[4] == "Seattle"
+    team << "WA"
+    team << 98134
+  elsif team[4] == "St. Louis"
+    team << "MO"
+    team << 63101
+  end
+end
+
+season_array.each do |game|
+  Football.create({
+    date: game[0],
+    home_team: game[1],
+    away_team: game[2],
+    time: game[3],
+    city: game[4],
+    state: game[5],
+    zip: game[6]
+    })
 end

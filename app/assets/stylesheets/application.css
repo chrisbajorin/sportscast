@@ -18,9 +18,7 @@
 
 
 /*Dropdown css*/
-@import url('stylesheets/demo.css');
-@import url('stylesheets/common.css');
-@import url('stylesheets/icons.css');
+
 
 .cd-dropdown ul {
   position: absolute;
@@ -59,3 +57,6 @@
   background: #e66b20;
   color: #fff;
 }
+
+/*   calendar css    */
+

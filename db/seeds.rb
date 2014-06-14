@@ -443,6 +443,10 @@ season_array.each do |game|
     })
 end
 
+
+#################### BASEBALL ####################
+
+
 baseball_team_games = []
 baseball_teams_array.each do |team|
   CSV.foreach("lib/assets/baseball/#{year}/#{team[0][0..1]}/#{team[0][3..5]}.csv") do |row|
@@ -471,3 +475,4 @@ baseball_teams_array.each do |team|
   end
 end
 
+##################################################

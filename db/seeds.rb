@@ -443,6 +443,26 @@ season_array.each do |game|
     })
 end
 
+teams = Football.all
+teams.each do |team|
+  date = team.date
+  date_array = date.split(" ")
+  if date_array[0]=="September"
+    date_array[0]="09"
+  elsif date_array[0]=="October"
+    date_array[0]="10"
+  elsif date_array[0]=="November"
+    date_array[0]="11"
+  elsif date_array[0]=="December"
+    date_array[0]="12"
+  end
+  date = ["#{year}", date_array[0], date_array[1]].join("-")
+  team.date = date
+  team.save
+end
+
+
+
 
 #################### BASEBALL ####################
 
@@ -473,6 +493,15 @@ baseball_teams_array.each do |team|
       game.save
     end
   end
+end
+
+teams = Baseball.all
+teams.each do |team|
+  date = team.date
+  date_array = date.split("/")
+  new_date = [date_array[2].to_i + 2000, date_array[0], date_array[1]].join("-")
+  team.date = new_date
+  team.save
 end
 
 ##################################################

@@ -302,6 +302,7 @@ array = []
 season_array = []
 game_array = []
 temp = []
+counter = 0
 array = string.split("\n")
 array.each do |game|
   game_array = game.split(",")
@@ -439,8 +440,10 @@ season_array.each do |game|
     time: game[3],
     city: game[4],
     state: game[5],
-    zip: game[6]
+    zip: game[6],
+    game_id: counter
     })
+  counter += 1
 end
 
 teams = Football.all
@@ -488,13 +491,16 @@ baseball_teams_array.each do |team|
       city: address[0],
       state: address[1],
       zip: address[2],
+      game_id: counter
       })
     if game[:zip] != nil
       game.save
+      counter += 1
     end
   end
 end
 
+# converts date into api-friendly format
 teams = Baseball.all
 teams.each do |team|
   date = team.date

@@ -5,13 +5,14 @@ require 'open-uri'
 year = "2014"
 
 
+################
+# CREATES CSV FILES IN baseball/year/(al/nl)
+# FOLDERS MUST BE PRE-MADE
+# TODO: CHECK FOR FILE EXISTANCE AND MAKE NECESSARY FOLDERS
+################
+
 baseball_teams_array.each do |team|
   open("#{year}/#{team[0][0..1]}/#{team[0][3..5]}.csv", 'wb') do |file|
     file << open("http://mlb.mlb.com/soa/ical/schedule.csv?home_team_id=#{team[1]}&season=#{year}").read
   end
 end
-
-# CSV FILE ALREADY EXISTS, READ-ONLY TO POPULATE DATABASE
-
-# open("al/bal.csv", "r") do |file|
-#   string = "#{file}"

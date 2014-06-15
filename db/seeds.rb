@@ -302,6 +302,7 @@ array = []
 season_array = []
 game_array = []
 temp = []
+counter = 0
 array = string.split("\n")
 array.each do |game|
   game_array = game.split(",")
@@ -379,8 +380,9 @@ season_array.each do |team|
     team << "MA"
     team << "02035"
   elsif team[4] == "New York"
-    team << "NY"
-    team << "10010"
+    team[4] = "East Rutherford"
+    team << "NJ"
+    team << "07073"
   elsif team[4] == "Denver"
     team << "CO"
     team << "80204"
@@ -439,9 +441,35 @@ season_array.each do |game|
     time: game[3],
     city: game[4],
     state: game[5],
-    zip: game[6]
+    zip: game[6],
+    game_id: counter
     })
+  counter += 1
 end
+
+teams = Football.all
+teams.each do |team|
+  date = team.date
+  date_array = date.split(" ")
+  if date_array[0]=="September"
+    date_array[0]="09"
+  elsif date_array[0]=="October"
+    date_array[0]="10"
+  elsif date_array[0]=="November"
+    date_array[0]="11"
+  elsif date_array[0]=="December"
+    date_array[0]="12"
+  end
+  date = ["#{year}", date_array[0], date_array[1]].join("-")
+  team.date = date
+  team.save
+end
+
+
+
+
+#################### BASEBALL ####################
+
 
 baseball_team_games = []
 baseball_teams_array.each do |team|
@@ -464,10 +492,23 @@ baseball_teams_array.each do |team|
       city: address[0],
       state: address[1],
       zip: address[2],
+      game_id: counter
       })
     if game[:zip] != nil
       game.save
+      counter += 1
     end
   end
 end
 
+# converts date into api-friendly format
+teams = Baseball.all
+teams.each do |team|
+  date = team.date
+  date_array = date.split("/")
+  new_date = [date_array[2].to_i + 2000, date_array[0], date_array[1]].join("-")
+  team.date = new_date
+  team.save
+end
+
+##################################################

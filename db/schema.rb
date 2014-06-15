@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140613171755) do
+ActiveRecord::Schema.define(version: 20140615024743) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20140613171755) do
     t.string   "zip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "game_id"
   end
 
   create_table "footballs", force: true do |t|
@@ -38,6 +39,7 @@ ActiveRecord::Schema.define(version: 20140613171755) do
     t.string   "zip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "game_id"
   end
 
   create_table "users", force: true do |t|
@@ -45,6 +47,22 @@ ActiveRecord::Schema.define(version: 20140613171755) do
     t.string   "email"
     t.string   "password_hash"
     t.string   "password_salt"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "weathers", force: true do |t|
+    t.string   "sport"
+    t.integer  "game_id"
+    t.string   "min_temp"
+    t.string   "mean_temp"
+    t.string   "max_temp"
+    t.string   "min_wind"
+    t.string   "mean_wind"
+    t.string   "max_wind"
+    t.string   "precipitation"
+    t.string   "cloud_cover"
+    t.string   "humidity"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

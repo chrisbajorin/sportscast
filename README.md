@@ -42,7 +42,7 @@ Welcome to our app  **SPORTSCAST**. Our aim is to give users a general idea of w
 
 [DARA MAO](https://github.com/daramao) https://github.com/daramao
 
-[CHRIS BARJORIN](https://github.com/cdbajorin) https://github.com/cdbajorin
+[CHRIS BAJORIN](https://github.com/cdbajorin) https://github.com/cdbajorin
 
 [EMMANUEL TUCKER](https://github.com/Mannymin) https://github.com/Mannymin
 
@@ -55,6 +55,8 @@ Welcome to our app  **SPORTSCAST**. Our aim is to give users a general idea of w
 * Link to source code on GitHub
 
 [GITHUB](https://github.com/cdbajorin/sportscast) https://github.com/cdbajorin/sportscast
+
+[HEROKU](https://sportscast.herokuapp.com) https://sportscast.herokuapp.com
 
 
 

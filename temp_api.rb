@@ -1,7 +1,7 @@
 
-giants_games = Football.where("home_team = ?", "New York Giants")
+game_array = Football.where("home_team = ?", "New York Giants")
 date_array =[]
-giants_games.each do |game|
+game_array.each do |game|
   mintemp = []
   meantemp = []
   maxtemp = []
@@ -42,24 +42,25 @@ giants_games.each do |game|
         # puts "none"
       end
       puts i
-      sleep 0.5
+      sleep 0.1
     end
-      cache = Weather.new({
-            sport: game.class.name,
-            game_id: game.game_id,
-            min_temp: mintemp.join(","),
-            mean_temp: meantemp.join(","),
-            max_temp: maxtemp.join(","),
-            min_wind: minwind.join(","),
-            mean_wind: meanwind.join(","),
-            max_wind: maxwind.join(","),
-            precipitation: precip.join(","),
-            cloud_cover: cldcvr.join(","),
-            humidity: hum.join(",")
-          })
-      cache.save
-      sleep 40
+    cache = Weather.new({
+          sport: game.class.name,
+          game_id: game.game_id,
+          min_temp: mintemp.join(","),
+          mean_temp: meantemp.join(","),
+          max_temp: maxtemp.join(","),
+          min_wind: minwind.join(","),
+          mean_wind: meanwind.join(","),
+          max_wind: maxwind.join(","),
+          precipitation: precip.join(","),
+          cloud_cover: cldcvr.join(","),
+          humidity: hum.join(",")
+        })
+    cache.save
+    sleep 40
   else
     puts "entry exists already"
   end
+
 end

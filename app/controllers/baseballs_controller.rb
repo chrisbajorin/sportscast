@@ -10,6 +10,13 @@ class BaseballsController < ApplicationController
   # GET /baseballs/1
   # GET /baseballs/1.json
   def show
+    game = Baseball.find_by_id(params[:id])
+    baseball_game_id = game.game_id
+    respond_to do |format|
+        format.html { @weather = Weather.where("game_id = ?", baseball_game_id) }
+        format.json { render json: Weather.where("game_id = ?", baseball_game_id) }
+      end
+      # binding.pry
   end
 
   # GET /baseballs/new

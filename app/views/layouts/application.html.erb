@@ -10,8 +10,11 @@
 
   <!-- To call stylesheet, javascripts, and d3 scripts begins-->
   <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-  <!-- To call stylesheet, javascripts, and d3 scripts ends-->
 
+  <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
+  <!-- To call stylesheet, javascripts, and d3 scripts ends-->
+  <%= stylesheet_link_tag('application', :media => 'all') %>
+  <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 
 </head>

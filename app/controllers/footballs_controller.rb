@@ -1,5 +1,5 @@
 class FootballsController < ApplicationController
-  before_action :set_football, only: [:show, :edit, :update, :destroy]
+  # before_action :set_football, only: [:show, :edit, :update, :destroy]
 
   # GET /footballs
   # GET /footballs.json
@@ -10,6 +10,13 @@ class FootballsController < ApplicationController
   # GET /footballs/1
   # GET /footballs/1.json
   def show
+    game = Football.find_by_id(params[:id])
+    football_game_id = game.game_id
+    respond_to do |format|
+        format.html { @weather = Weather.where("game_id = ?", football_game_id) }
+        format.json { render json: Weather.where("game_id = ?", football_game_id) }
+      end
+      # binding.pry
   end
 
   # GET /footballs/new
@@ -61,14 +68,14 @@ class FootballsController < ApplicationController
   #   end
   # end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_football
-      @football = Football.find(params[:id])
-    end
+  # private
+  #   # Use callbacks to share common setup or constraints between actions.
+  #   def set_football
+  #     @football = Football.find(params[:id])
+  #   end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def football_params
-      params.require(:football).permit(:date, :away_team, :home_team, :time, :city, :state, :zip)
-    end
+  #   # Never trust parameters from the scary internet, only allow the white list through.
+  #   def football_params
+  #     params.require(:football).permit(:date, :away_team, :home_team, :time, :city, :state, :zip)
+  #   end
 end

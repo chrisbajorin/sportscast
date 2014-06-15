@@ -1,3 +1,4 @@
+/* this should load after calendar.css */
 body {
 	background: #cebe29;
 	background: -moz-linear-gradient(-45deg, #cebe29 0%, #9b1f50 33%, #2989d8 71%, #89b4ff 91%);
@@ -49,7 +50,7 @@ body {
 	width: 60%;
 }
 
-.custom-header h2 a, 
+.custom-header h2 a,
 .custom-header h2 span {
 	color: rgba(255,255,255,0.3);
 	font-size: 18px;
@@ -148,7 +149,7 @@ body {
 	position: absolute;
 }
 
-.fc-calendar .fc-head { 
+.fc-calendar .fc-head {
 	background: rgba(255,255,255,0.2);
 	color: rgba(255,255,255,0.9);
 	box-shadow: inset 0 1px 0 rgba(255,255,255,0.2);
@@ -225,11 +226,11 @@ body {
 	box-shadow: inset 0 0 100px rgba(255,255,255,0.1);
 }
 
-.fc-calendar .fc-row > div.fc-today:after { 
-	content: ''; 
+.fc-calendar .fc-row > div.fc-today:after {
+	content: '';
 	display: block;
 	position: absolute;
-	top: 0; 
+	top: 0;
 	left: 0;
 	width: 100%;
 	height: 100%;
@@ -273,7 +274,7 @@ body {
 	.custom-header,
 	.custom-header nav,
 	.custom-calendar-full,
-	.fc-calendar-container, 
+	.fc-calendar-container,
 	.fc-calendar,
 	.fc-calendar .fc-head,
 	.fc-calendar .fc-row > div > span.fc-date {
@@ -339,7 +340,7 @@ body {
 		background: rgba(255, 255, 255, 0.2);
 	}
 
-	.fc-calendar .fc-row > div.fc-today:after { 
+	.fc-calendar .fc-row > div.fc-today:after {
 		display: none;
 	}
 

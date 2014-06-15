@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140615003803) do
+ActiveRecord::Schema.define(version: 20140615014706) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 20140615003803) do
   end
 
   create_table "weathers", force: true do |t|
+    t.string   "sport"
     t.integer  "game_id"
     t.decimal  "min_temp"
     t.decimal  "mean_temp"

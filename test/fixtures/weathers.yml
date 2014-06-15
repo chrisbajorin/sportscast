@@ -1,6 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  sport: MyString
   game_id: 1
   min_temp: 9.99
   mean_temp: 9.99
@@ -13,6 +14,7 @@ one:
   humidity: 9.99
 
 two:
+  sport: MyString
   game_id: 1
   min_temp: 9.99
   mean_temp: 9.99

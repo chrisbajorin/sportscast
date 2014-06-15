@@ -1,6 +1,7 @@
 class CreateWeathers < ActiveRecord::Migration
   def change
     create_table :weathers do |t|
+      t.string :sport
       t.integer :game_id
       t.decimal :min_temp
       t.decimal :mean_temp

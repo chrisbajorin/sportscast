@@ -31,7 +31,7 @@
 //////////////// CHRIS //////////////
 
 // the issue with this one is it only works with football.
-function checkWeatherCache(path, game_id) {
+function checkWeatherCache(path) {
     var $weatherList = $("#weather-list");
 
     $.ajax({

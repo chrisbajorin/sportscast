@@ -5,8 +5,8 @@
 $(document).ready(function() {
   var path = window.location.pathname;
   id = path.split("/").pop();
-    checkWeatherCache(id);
-  });
+  checkWeatherCache(path);
+});
 </script>
 <script id="weatherTemplate" type="text/template">
 

@@ -30,12 +30,12 @@
 
 //////////////// CHRIS //////////////
 
-
-function checkWeatherCache(game_id) {
+// the issue with this one is it only works with football.
+function checkWeatherCache(path, game_id) {
     var $weatherList = $("#weather-list");
-    console.log("Hi!")
+
     $.ajax({
-        url: "/footballs/"+game_id,
+        url: path,
         type: "GET",
         dataType: "json"
     }).done(function(data) {
@@ -47,4 +47,4 @@ function checkWeatherCache(game_id) {
         })
    });
 }
-    // console.log(new_data);
+

@@ -37,3 +37,19 @@
 
 <%= link_to 'Edit', edit_baseball_path(@baseball) %> |
 <%= link_to 'Back', baseballs_path %>
+
+<div id="weather-list">
+</div>
+
+<script>
+$(document).ready(function() {
+  var path = window.location.pathname;
+  id = path.split("/").pop();
+  checkWeatherCache(path);
+});
+</script>
+<script id="weatherTemplate" type="text/template">
+
+<%= render "weather" %>
+
+</script>

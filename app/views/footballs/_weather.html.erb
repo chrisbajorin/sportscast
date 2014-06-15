@@ -1,0 +1,27 @@
+<!-- ordered from recent to older. min_temp_array[0] is last year.
+Some years have nils for unavailable data from the first API. We
+need to generate API keys to get info from the second one ASAP if
+we want more than 6 years.
+ -->
+
+
+<%% min_temp_array = min_temp.split(",") %>
+<%% mean_temp_array = mean_temp.split(",") %>
+<%% max_temp_array = max_temp.split(",") %>
+<%% min_wind_array = min_temp.split(",") %>
+<%% mean_wind_array = min_temp.split(",") %>
+<%% max_wind_array = min_temp.split(",") %>
+<%% cloud_cover_array = cloud_cover.split(",") %>
+<%% humidity_array = humidity.split(",") %>
+<%% precip_array = precipitation.split(",") %>
+
+<h1>min temp array: <%%= min_temp_array %></h1>
+<h1>mean temp array: <%%= mean_temp_array %></h1>
+<h1>max temp array: <%%= max_temp_array %></h1>
+<h1>min wind array: <%%= min_wind_array %></h1>
+<h1>min wind array: <%%= mean_wind_array %></h1>
+<h1>min wind array: <%%= max_wind_array %></h1>
+<h1>cloud cover string: <%%= cloud_cover_array %></h1>
+<h1>humidity string: <%%= humidity_array %></h1>
+<h1>precipiation string: <%%= precip_array %></h1>
+

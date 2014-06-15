@@ -1,15 +1,86 @@
 <h1>Listing footballs</h1>
 
-<a href="#" data-reveal-id="myModal" class="button tiny">CALENDAR of events</a>
+<!-- <a href="#" data-reveal-id="myModal" class="button tiny">CALENDAR of events</a>
 
 <div id="myModal" class="reveal-modal" data-reveal>
   <h2>CALENDAR</h2>
   <p class="lead">CALENDAR goes here</p>
   <p>Anything can go here really. Just testing this out and seeing how modals work. A possibility for sure.</p>
   <a class="close-reveal-modal">&#215;</a>
-</div>
+</div> -->
 
-<table>
+<!-- Dropdown  -->
+
+<section class="main">
+<!--         <div class="fleft">
+          <p>Same as example 5 but with a delay for each item.</p>
+        </div> -->
+        <div class="fleft">
+          <select id="cd-dropdown" class="cd-select">
+            <option value="-1" selected>Choose a Team</option>
+            <option value="1" class="icon-camera">Seattle Seahawks</option>
+            <option value="2" class="icon-diamond">Atlanta Falcons</option>
+            <option value="3" class="icon-rocket">Chicago Bears</option>
+            <option value="4" class="icon-star">Houston Texans</option>
+            <option value="5" class="icon-clock">Kansas City Chiefs</option>
+            <option value="6" class="icon-clock">Miami Dolphins</option>
+            <option value="7" class="icon-camera">New York Jets</option>
+            <option value="8" class="icon-diamond">Philadelphia Eagles</option>
+            <option value="9" class="icon-rocket">Pittsburgh Steelers</option>
+            <option value="10" class="icon-star">St. Louis Rams</option>
+            <option value="11" class="icon-clock">Baltimore Ravens</option>
+            <option value="12" class="icon-clock">Dallas Cowboys</option>
+            <option value="13" class="icon-camera">Tampa Bay Buccaneers</option>
+            <option value="14" class="icon-diamond">Denver Broncos</option>
+            <option value="15" class="icon-rocket">Arizona Cardinals</option>
+            <option value="16" class="icon-star">Detroit Lions</option>
+            <option value="17" class="icon-clock">Buffalo Bills</option>
+            <option value="18" class="icon-clock">Carolina Panthers</option>
+            <option value="19" class="icon-camera">Cincinnati Bengals</option>
+            <option value="20" class="icon-diamond">Cleveland Browns</option>
+            <option value="21" class="icon-rocket">Minnesota Vikings</option>
+            <option value="22" class="icon-star">New York Giants</option>
+            <option value="23" class="icon-clock">Tennessee Titans</option>
+            <option value="24" class="icon-clock">Washington Redskins</option>
+            <option value="25" class="icon-star">San Diego Chargers</option>
+            <option value="26" class="icon-clock">Green Bay Packers</option>
+            <option value="27" class="icon-clock">Oakland Raiders</option>
+            <option value="28" class="icon-camera">San Francisco 49ers</option>
+            <option value="29" class="icon-diamond">Indianapolis Colts</option>
+            <option value="30" class="icon-rocket">Jacksonville Jaguars</option>
+            <option value="31" class="icon-star">New Orleans Saints</option>
+            <option value="32" class="icon-clock">New England Patriots</option>
+          </select>
+        </div>
+      </section>
+
+      <!-- the drop down form will not work unless this version of jquery is used? -->
+      <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+    <script type="text/javascript">
+
+      $( function() {
+
+        $( '#cd-dropdown' ).dropdown( {
+          gutter : 5,
+          stack : false,
+          delay : 100,
+          slidingIn : 100
+        } );
+
+      });
+
+    </script>
+
+<!-- Dropdown -->
+
+<!-- calendar partial -->
+
+<%= render 'calendar' %>
+
+<!-- calendar partial -->
+
+<!-- <table>
   <thead>
     <tr>
       <th>Date</th>
@@ -39,8 +110,10 @@
       </tr>
     <% end %>
   </tbody>
-</table>
+</table> -->
 
-<br>
+<!-- <br>
 
-<%= link_to 'New Football', new_football_path %>
+<%= link_to 'New Football', new_football_path %> -->
+  <%= stylesheet_link_tag('application', :media => 'all') %>
+  <%= javascript_include_tag "application" %>

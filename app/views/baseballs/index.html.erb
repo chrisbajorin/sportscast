@@ -1,4 +1,5 @@
 <h1>Listing baseballs</h1>
+
 <!-- Dropdown  -->
 
 <section class="main">
@@ -8,15 +9,43 @@
         <div class="fleft">
           <select id="cd-dropdown" class="cd-select">
             <option value="-1" selected>Choose a Team</option>
-            <option value="1" class="icon-camera">RedSox</option>
-            <option value="2" class="icon-diamond">Blue Jays</option>
-            <option value="3" class="icon-rocket">Rays</option>
-            <option value="4" class="icon-star">Orioles</option>
-            <option value="5" class="icon-clock">Pirates</option>
+            <option value="1" class="icon-camera">Seattle Seahawks</option>
+            <option value="2" class="icon-diamond">Atlanta Falcons</option>
+            <option value="3" class="icon-rocket">Chicago Bears</option>
+            <option value="4" class="icon-star">Houston Texans</option>
+            <option value="5" class="icon-clock">Kansas City Chiefs</option>
+            <option value="6" class="icon-clock">Miami Dolphins</option>
+            <option value="7" class="icon-camera">New York Jets</option>
+            <option value="8" class="icon-diamond">Philadelphia Eagles</option>
+            <option value="9" class="icon-rocket">Pittsburgh Steelers</option>
+            <option value="10" class="icon-star">St. Louis Rams</option>
+            <option value="11" class="icon-clock">Baltimore Ravens</option>
+            <option value="12" class="icon-clock">Dallas Cowboys</option>
+            <option value="13" class="icon-camera">Tampa Bay Buccaneers</option>
+            <option value="14" class="icon-diamond">Denver Broncos</option>
+            <option value="15" class="icon-rocket">Arizona Cardinals</option>
+            <option value="16" class="icon-star">Detroit Lions</option>
+            <option value="17" class="icon-clock">Buffalo Bills</option>
+            <option value="18" class="icon-clock">Carolina Panthers</option>
+            <option value="19" class="icon-camera">Cincinnati Bengals</option>
+            <option value="20" class="icon-diamond">Cleveland Browns</option>
+            <option value="21" class="icon-rocket">Minnesota Vikings</option>
+            <option value="22" class="icon-star">New York Giants</option>
+            <option value="23" class="icon-clock">Tennessee Titans</option>
+            <option value="24" class="icon-clock">Washington Redskins</option>
+            <option value="25" class="icon-star">San Diego Chargers</option>
+            <option value="26" class="icon-clock">Green Bay Packers</option>
+            <option value="27" class="icon-clock">Oakland Raiders</option>
+            <option value="28" class="icon-camera">San Francisco 49ers</option>
+            <option value="29" class="icon-diamond">Indianapolis Colts</option>
+            <option value="30" class="icon-rocket">Jacksonville Jaguars</option>
+            <option value="31" class="icon-star">New Orleans Saints</option>
+            <option value="32" class="icon-clock">New England Patriots</option>
           </select>
         </div>
       </section>
 
+      <!-- the drop down form will not work unless this version of jquery is used? -->
       <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 
     <script type="text/javascript">
@@ -36,80 +65,13 @@
 
 <!-- Dropdown -->
 
-<!-- Calendar -->
+<!-- calendar partial -->
 
-<div class="container" class="body-gradient">
-      <div class="custom-calendar-wrap custom-calendar-full">
-        <div class="custom-header clearfix">
-          <!-- <h2>Calendar</h2> -->
-          <h3 class="custom-month-year">
-            <span id="custom-month" class="custom-month"></span>
-            <span id="custom-year" class="custom-year"></span>
-            <nav>
-              <span id="custom-prev" class="custom-prev"></span>
-              <span id="custom-next" class="custom-next"></span>
-              <span id="custom-current" class="custom-current" title="Go to current date"></span>
-            </nav>
-          </h3>
-        </div>
-        <div id="calendar" class="fc-calendar-container"></div>
-      </div>
-    </div><!-- /container -->
+<%= render 'calendar' %>
 
+<!-- calendar partial -->
 
-
-    <script type="text/javascript">
-      $(function() {
-
-        var cal = $( '#calendar' ).calendario( {
-            onDayClick : function( $el, $contentEl, dateProperties ) {
-
-              for( var key in dateProperties ) {
-                console.log( key + ' = ' + dateProperties[ key ] );
-              }
-
-            },
-            caldata : codropsEvents
-          } ),
-          $month = $( '#custom-month' ).html( cal.getMonthName() ),
-          $year = $( '#custom-year' ).html( cal.getYear() );
-
-        $( '#custom-next' ).on( 'click', function() {
-          cal.gotoNextMonth( updateMonthYear );
-        } );
-        $( '#custom-prev' ).on( 'click', function() {
-          cal.gotoPreviousMonth( updateMonthYear );
-        } );
-        $( '#custom-current' ).on( 'click', function() {
-          cal.gotoNow( updateMonthYear );
-        } );
-
-        function updateMonthYear() {
-          $month.html( cal.getMonthName() );
-          $year.html( cal.getYear() );
-        }
-
-        // you can also add more data later on. As an example:
-        /*
-        someElement.on( 'click', function() {
-
-          cal.setData( {
-            '03-01-2013' : '<a href="#">testing</a>',
-            '03-10-2013' : '<a href="#">testing</a>',
-            '03-12-2013' : '<a href="#">testing</a>'
-          } );
-          // goes to a specific month/year
-          cal.goto( 3, 2013, updateMonthYear );
-
-        } );
-        */
-
-      });
-    </script>
-
-<!-- Calendar -->
-
-<table>
+<!-- <table>
   <thead>
     <tr>
       <th>Date</th>
@@ -139,9 +101,13 @@
       </tr>
     <% end %>
   </tbody>
-</table>
+</table> -->
 
 <br>
 
 <%= link_to 'New Baseball', new_baseball_path %>
+
+<!-- linking to all css and js in the asset pipeline. it only works here and not in the laypout/app.html.erb ?  -->
+<%= stylesheet_link_tag('application', :media => 'all') %>
+<%= javascript_include_tag "application" %>
 

@@ -12,6 +12,7 @@
  *
  *= require_self
  *= require foundation_and_overrides
+ *= require style6.css
  *= require calendar
  *= require custom_1
  *= require_tree .
@@ -20,57 +21,6 @@
  */
 
 
-/* Dropdown css */
-.cd-dropdown ul {
-  position: absolute;
-  top: 0px;
-  width: 100%;
-}
 
-.cd-dropdown > span,
-.cd-dropdown ul li {
-  box-shadow: 0 1px 1px rgba(0,0,0,0.1);
-}
 
-.cd-dropdown ul li {
-  position: absolute;
-  width: 100%;
-  pointer-events: none;
-}
 
-.cd-active.cd-dropdown > span {
-  color: #e66b20;
-}
-
-.cd-active.cd-dropdown ul li {
-  pointer-events: auto;
-}
-
-.cd-active.cd-dropdown ul li span {
-  -webkit-transition: all 0.2s linear 0s;
-  -moz-transition: all 0.2s linear 0s;
-  -ms-transition: all 0.2s linear 0s;
-  -o-transition: all 0.2s linear 0s;
-  transition: all 0.2s linear 0s;
-}
-
-.cd-active.cd-dropdown ul li span:hover {
-  background: #e66b20;
-  color: #fff;
-}
-
-/* calendar css */
-
-body {
-  background: #cebe29;
-  background: -moz-linear-gradient(-45deg, #cebe29 0%, #9b1f50 33%, #2989d8 71%, #89b4ff 91%);
-  background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#cebe29), color-stop(33%,#9b1f50), color-stop(71%,#2989d8), color-stop(91%,#89b4ff));
-  background: -webkit-linear-gradient(-45deg, #cebe29 0%,#9b1f50 33%,#2989d8 71%,#89b4ff 91%);
-  background: -o-linear-gradient(-45deg, #cebe29 0%,#9b1f50 33%,#2989d8 71%,#89b4ff 91%);
-  background: -ms-linear-gradient(-45deg, #cebe29 0%,#9b1f50 33%,#2989d8 71%,#89b4ff 91%);
-  background: linear-gradient(135deg, #cebe29 0%,#9b1f50 33%,#2989d8 71%,#89b4ff 91%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cebe29', endColorstr='#89b4ff',GradientType=1 );
-  -webkit-background-size: 100% 100%;
-  -moz-background-size: 100% 100%;
-  background-size: 100% 100%;
-}

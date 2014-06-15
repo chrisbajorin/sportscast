@@ -4,21 +4,25 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "SPORSTCAST" %></title>
+        <!--    copied below to rails -->
+    <link rel="shortcut icon" href="../favicon.ico">
 
-    <%= stylesheet_link_tag    "application" %>
-    <%= javascript_include_tag "vendor/modernizr" %>
+
+    <%= stylesheet_link_tag('application', :media => 'all') %>
+
     <%= csrf_meta_tags %>
+
   </head>
 
  <body>
   <!-- Users authentication begins-->
-  <div id="user_nav">
+  <div id="user_nav" class="breadcrumbs">
     <% if current_user %>
       Logged in as <%= current_user.email %>.
       <%= link_to "Log out", log_out_path %>
     <% else %>
-      <%= link_to "Sign up", sign_up_path %> or
+      <%= link_to "Sign up", sign_up_path %>
       <%= link_to "log in", log_in_path %>
     <% end %>
   </div>
@@ -31,4 +35,6 @@
     <%= javascript_include_tag "application" %>
   </body>
 </html>
+
+
 

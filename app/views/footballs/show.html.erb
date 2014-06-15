@@ -1,39 +1,15 @@
-<p id="notice"><%= notice %></p>
+<div id="weather-list">
+</div>
 
-<p>
-  <strong>Date:</strong>
-  <%= @football.date %>
-</p>
+<script>
+$(document).ready(function() {
+  var path = window.location.pathname;
+  id = path.split("/").pop();
+    checkWeatherCache(id);
+  });
+</script>
+<script id="weatherTemplate" type="text/template">
 
-<p>
-  <strong>Away team:</strong>
-  <%= @football.away_team %>
-</p>
+<%= render "weather" %>
 
-<p>
-  <strong>Home team:</strong>
-  <%= @football.home_team %>
-</p>
-
-<p>
-  <strong>Time:</strong>
-  <%= @football.time %>
-</p>
-
-<p>
-  <strong>City:</strong>
-  <%= @football.city %>
-</p>
-
-<p>
-  <strong>State:</strong>
-  <%= @football.state %>
-</p>
-
-<p>
-  <strong>Zip:</strong>
-  <%= @football.zip %>
-</p>
-
-<%= link_to 'Edit', edit_football_path(@football) %> |
-<%= link_to 'Back', footballs_path %>
+</script>

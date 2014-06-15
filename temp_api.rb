@@ -1,7 +1,7 @@
 
-giants_games = Football.where("home_team = ?", "New York Giants")
+game_array = Football.where("home_team = ?", "New York Giants")
 date_array =[]
-giants_games.each do |game|
+game_array.each do |game|
   mintemp = []
   meantemp = []
   maxtemp = []
@@ -42,7 +42,7 @@ giants_games.each do |game|
         # puts "none"
       end
       puts i
-      sleep 0.5
+      sleep 0.1
     end
     cache = Weather.new({
           sport: game.class.name,

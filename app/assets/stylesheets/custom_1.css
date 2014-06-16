@@ -220,10 +220,10 @@ body {
 .fc-calendar .fc-row > div:first-child{
 	box-shadow: none;
 }
-
+/*this is what controls the highlight*/
 .fc-calendar .fc-row > div.fc-today {
 	background: transparent;
-	box-shadow: inset 0 0 100px rgba(255,255,255,0.1);
+	box-shadow: inset 0 0 100px rgba(255,255,255,0.35);
 }
 
 .fc-calendar .fc-row > div.fc-today:after {

@@ -27,3 +27,39 @@
 //             .style("width", function(d) { return x(d) + "px"; })
 //             .text(function(d) { return d; });
 // </script>
+
+function displayTemperatureD3(dataset, scale) {
+
+  var height = 400,
+      width = 800,
+      barPadding = 2,
+      max = maxOfArray(dataset);
+
+
+////////////// working crappy version //////////////
+
+  var svg = d3.select("body").append("svg");
+  svg.attr({
+    height: height,
+    width: width
+  });
+
+  var rect = svg.selectAll("svg")
+    .data(dataset)
+    .enter()
+    .append("rect");
+
+  // x is the starting point from the left
+  rect.attr("x", function(d,i) {
+    return i * (width / dataset.length);
+  })
+  //y is the starting point from the top
+  rect.attr("y", function(d) {
+    return height - d;
+  });
+  rect.attr("width", width / dataset.length - barPadding);
+  rect.attr("height", function(d){
+    return d;
+  });
+
+}

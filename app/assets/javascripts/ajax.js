@@ -30,7 +30,8 @@
 
 //////////////// CHRIS //////////////
 
-// the issue with this one is it only works with football.
+// works with any sport if you pass in the url path. will need to be edited
+// once we are rendering on a single page.
 function checkWeatherCache(path) {
     var $weatherList = $("#weather-list");
 
@@ -48,3 +49,10 @@ function checkWeatherCache(path) {
    });
 }
 
+
+function populateCalendar() {
+
+    $.ajax({
+        url:path
+    })
+}

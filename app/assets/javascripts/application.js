@@ -12,11 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require d3.v3
+//= require d3_box
 //= require foundation
 //= require turbolinks
 //= require_tree .
 
 
-$(function(){ $(document).foundation(); });
 
 

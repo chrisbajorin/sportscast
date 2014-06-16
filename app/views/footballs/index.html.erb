@@ -94,6 +94,10 @@
     </tr>
   </thead>
 
+  <script type="text/javascript">
+    var footballs = <%= @footballs.to_json.html_safe %>
+  </script>
+
   <tbody>
     <% @footballs.each do |football| %>
       <tr>

@@ -28,16 +28,20 @@
 //             .text(function(d) { return d; });
 // </script>
 
-function displayTemperatureD3(dataset) {
-  var h = 100,
-      w = 600.
+function displayTemperatureD3(dataset, scale) {
+
+  var height = 400,
+      width = 800,
       barPadding = 2,
-      max = maxOfArray(dataset)
+      max = maxOfArray(dataset);
+
+
+////////////// working crappy version //////////////
 
   var svg = d3.select("body").append("svg");
   svg.attr({
-    height: h,
-    width: w
+    height: height,
+    width: width
   });
 
   var rect = svg.selectAll("svg")
@@ -45,18 +49,15 @@ function displayTemperatureD3(dataset) {
     .enter()
     .append("rect");
 
-// attributes for a temp bar
-
-
   // x is the starting point from the left
   rect.attr("x", function(d,i) {
-    return i * (w / dataset.length);
+    return i * (width / dataset.length);
   })
   //y is the starting point from the top
   rect.attr("y", function(d) {
-    return h - d;
+    return height - d;
   });
-  rect.attr("width", w / dataset.length - barPadding);
+  rect.attr("width", width / dataset.length - barPadding);
   rect.attr("height", function(d){
     return d;
   });

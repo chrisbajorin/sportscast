@@ -50,17 +50,9 @@ function checkWeatherCache(path) {
 }
 
 
-//////// not ajax, didn't have anywhere else for now.
+function populateCalendar() {
 
-function splitToNumArray(string){
-    var results_array = [];
-    var temp_array = string.split(",");
-    temp_array.forEach(function(num) {
-        results_array.push(parseFloat(num));
-    });
-    return results_array;
-}
-
-function maxOfArray(numArray){
-    return Math.max.apply(null, numArray);
+    $.ajax({
+        url:path
+    })
 }

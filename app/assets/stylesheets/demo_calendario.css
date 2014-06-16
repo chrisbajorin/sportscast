@@ -130,6 +130,6 @@ a {
 
 .codrops-demos a.current-demo,
 .codrops-demos a.current-demo:hover {
-	color: rgba(255,255,255,0.5);
+	color: rgba(255,255,255,1);
 	border-color: rgba(255,255,255,0.5);
 }

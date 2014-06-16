@@ -21,15 +21,14 @@ function maxOfArray(numArray){
 
 
 function sortCalendarData(objects, team_id) {
-    var teamName = team_id.replace("_", " ");
+    var teamName = team_id.split("_").join(" ");
     var gameObjects = {};
     objects.forEach(function(game){
         if ( game.home_team == teamName ){
             var dateArray = game.date.split("-");
             var dateString = (dateArray[1]+"-"+dateArray[2]+"-"+dateArray[0]);
-            gameObjects[dateString] = ("<p>" + game.away_team + " @ " + game.home_team + "</p><p>" + game.time + "</p>");
+            gameObjects[dateString] = ("<a href=\"footballs/"+game.id+"\"><p>" + game.away_team + " @<br> " + game.home_team + "</p><p>" + game.time + "</p></a>");
         }
     });
     return gameObjects;
-    // console.log(gameObjects);
 }

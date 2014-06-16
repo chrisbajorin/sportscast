@@ -1,3 +1,5 @@
+///////////// D3 data functions /////////////
+
 // for breaking the database weather strings into number arrays.
 // if NaN, replaces with -1 for easier data manipulation with d3.
 function splitToNumArray(string){
@@ -19,6 +21,24 @@ function maxOfArray(numArray){
     return Math.max.apply(null, numArray);
 }
 
+function minOfArray(numArray){
+    return Math.min.apply(null, numArray);
+}
+
+function combineMinMeanMax(minArray, meanArray, maxArray){
+    var dataset = [];
+    for (i=0; i < minArray.length; i++) {
+        var combinedArray = [];
+        combinedArray[0] = minArray[i];
+        combinedArray[1] = meanArray[i];
+        combinedArray[2] = maxArray[i];
+        dataset.push(combinedArray);
+    }
+    return dataset;
+}
+
+
+// calendar functionality
 
 function sortCalendarData(objects, team_id) {
     var teamName = team_id.split("_").join(" ");

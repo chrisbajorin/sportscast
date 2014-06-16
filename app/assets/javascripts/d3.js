@@ -28,7 +28,9 @@
 //             .text(function(d) { return d; });
 // </script>
 
-function displayTemperatureD3(dataset, scale) {
+function displayTemperatureD3(mindata, meandata, maxdata) {
+
+
 
   var height = 400,
       width = 800,

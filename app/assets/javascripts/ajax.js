@@ -41,6 +41,7 @@ function checkWeatherCache(path) {
         dataType: "json"
     }).done(function(data) {
         console.log(data)
+
         data.forEach(function(weather){
             console.log(weather)
             var weatherTemplate = _.template($("#weatherTemplate").html(), weather);

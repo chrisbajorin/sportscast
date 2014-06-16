@@ -30,7 +30,8 @@
 
 //////////////// CHRIS //////////////
 
-// the issue with this one is it only works with football.
+// works with any sport if you pass in the url path. will need to be edited
+// once we are rendering on a single page.
 function checkWeatherCache(path) {
     var $weatherList = $("#weather-list");
 
@@ -48,3 +49,18 @@ function checkWeatherCache(path) {
    });
 }
 
+
+//////// not ajax, didn't have anywhere else for now.
+
+function splitToNumArray(string){
+    var results_array = [];
+    var temp_array = string.split(",");
+    temp_array.forEach(function(num) {
+        results_array.push(parseFloat(num));
+    });
+    return results_array;
+}
+
+function maxOfArray(numArray){
+    return Math.max.apply(null, numArray);
+}

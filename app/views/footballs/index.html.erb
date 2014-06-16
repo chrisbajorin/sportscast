@@ -183,7 +183,7 @@ body {
 
 <!-- calendar partial -->
 
-<!-- <table>
+<table>
   <thead>
     <tr>
       <th>Date</th>
@@ -196,10 +196,6 @@ body {
       <th colspan="3"></th>
     </tr>
   </thead>
-
-  <script type="text/javascript">
-    var footballs = <%= @footballs.to_json.html_safe %>
-  </script>
 
   <tbody>
     <% @footballs.each do |football| %>
@@ -217,7 +213,11 @@ body {
       </tr>
     <% end %>
   </tbody>
-</table> -->
+</table>
+
+  <script type="text/javascript">
+    var footballs = <%= @footballs.to_json.html_safe %>
+  </script>
 
 <!-- <br>
 

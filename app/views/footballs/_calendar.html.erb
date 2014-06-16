@@ -31,7 +31,7 @@
               }
 
             },
-            caldata : codropsEvents
+            caldata : gameSchedule
           } ),
           $month = $( '#custom-month' ).html( cal.getMonthName() ),
           $year = $( '#custom-year' ).html( cal.getYear() );
@@ -65,7 +65,13 @@
 
         } );
         */
+        $("p").click(function() {
 
+          team_id = $(this).attr('id');
+          objects = sortCalendarData(footballs, team_id);
+          cal.setData(objects);
+          console.log(objects);
+        });
       });
     </script>
 

@@ -1,5 +1,5 @@
 class FootballsController < ApplicationController
-  require 'csv'
+
   # before_action :set_football, only: [:show, :edit, :update, :destroy]
 
   # GET /footballs
@@ -8,11 +8,11 @@ class FootballsController < ApplicationController
     @footballs = Football.all
 
 #======== To read d3 csv begins
-    # file = "/morley.csv"
-    # open(file, "r+") do |f|
-    #   f.read
-    # end
-    CSV.read("morley.csv", 'r')
+    file = "morley.csv"
+    open(file, "r+") do |f|
+      f.read
+    end
+   # open("morley.csv", 'r')
 #======== To read d3 csv ends
 
   end

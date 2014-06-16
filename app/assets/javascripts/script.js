@@ -11,7 +11,7 @@ $(document).ready(function(){
   .width(width)
   .height(height);
 
-d3.csv("morley.csv", function(error, csv) {
+d3.csv("/morley.csv", function(error, csv) {
   var data = [];
 
     csv.forEach(function(x) {

@@ -1,34 +1,57 @@
 <h1>Listing footballs</h1>
-<style>
 
-body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
+<!-- <a href="#" data-reveal-id="myModal" class="button tiny">CALENDAR of events</a>
 
-.box {
-  font: 10px sans-serif;
-}
+<div id="myModal" class="reveal-modal" data-reveal>
+  <h2>CALENDAR</h2>
+  <p class="lead">CALENDAR goes here</p>
+  <p>Anything can go here really. Just testing this out and seeing how modals work. A possibility for sure.</p>
+  <a class="close-reveal-modal">&#215;</a>
+</div> -->
 
-.box line,
-.box rect,
-.box circle {
-  fill: #fff;
-  stroke: #000;
-  stroke-width: 1.5px;
-}
+<!-- Dropdown  -->
 
-.box .center {
-  stroke-dasharray: 3,3;
-}
+<section class="main">
 
-.box .outlier {
-  fill: none;
-  stroke: #ccc;
-}
+  <div class="fleft">
+    <select id="cd-dropdown" class="cd-select">
+      <option value="-1" selected>Choose a Team</option>
+      <option value="1" id="Seattle_Seahawks" class="icon-camera">Seattle Seahawks</option>
+      <option value="2" id="Atlanta_Falcons" class="icon-diamond">Atlanta Falcons</option>
+      <option value="3" id="Chicago_Bears" class="icon-rocket">Chicago Bears</option>
+      <option value="4" id="Houston_Texans" class="icon-star">Houston Texans</option>
+      <option value="5" id="Kansas_City_Chiefs" class="icon-clock">Kansas City Chiefs</option>
+      <option value="6" id="Miami_Dolphins" class="icon-clock">Miami Dolphins</option>
+      <option value="7" id="New_York_Jets" class="icon-camera">New York Jets</option>
+      <option value="8" id="Philadelphia_Eagles" class="icon-diamond">Philadelphia Eagles</option>
+      <option value="9" id="Pittsburgh_Steelers" class="icon-rocket">Pittsburgh Steelers</option>
+      <option value="10" id="St._Louis_Rams" class="icon-star">St. Louis Rams</option>
+      <option value="11" id="Baltimore_Ravens" class="icon-clock">Baltimore Ravens</option>
+      <option value="12" id="Dallas_Cowboys" class="icon-clock">Dallas Cowboys</option>
+      <option value="13" id="Tampa_Bay_Buccaneers" class="icon-camera">Tampa Bay Buccaneers</option>
+      <option value="14" id="Denver_Broncos" class="icon-diamond">Denver Broncos</option>
+      <option value="15" id="Arizona_Cardinals" class="icon-rocket">Arizona Cardinals</option>
+      <option value="16" id="Detroit_Lions" class="icon-star">Detroit Lions</option>
+      <option value="17" id="Buffalo_Bills" class="icon-clock">Buffalo Bills</option>
+      <option value="18" id="Carolina_Panthers" class="icon-clock">Carolina Panthers</option>
+      <option value="19" id="Cincinnati_Bengals" class="icon-camera">Cincinnati Bengals</option>
+      <option value="20" id="Cleveland_Browns" class="icon-diamond">Cleveland Browns</option>
+      <option value="21" id="Minnesota_Vikings" class="icon-rocket">Minnesota Vikings</option>
+      <option value="22" id="New_York_Giants" class="icon-star">New York Giants</option>
+      <option value="23" id="Tennessee_Titans" class="icon-clock">Tennessee Titans</option>
+      <option value="24" id="Washington_Redskins" class="icon-clock">Washington Redskins</option>
+      <option value="25" id="San_Diego_Chargers" class="icon-star">San Diego Chargers</option>
+      <option value="26" id="Green_Bay_Packers" class="icon-clock">Green Bay Packers</option>
+      <option value="27" id="Oakland_Raiders" class="icon-clock">Oakland Raiders</option>
+      <option value="28" id="San_Francisco_49ers" class="icon-camera">San Francisco 49ers</option>
+      <option value="29" id="Indianapolis_Colts" class="icon-diamond">Indianapolis Colts</option>
+      <option value="30" id="Jacksonville_Jaguars" class="icon-rocket">Jacksonville Jaguars</option>
+      <option value="31" id="New_Orleans_Saints" class="icon-star">New Orleans Saints</option>
+      <option value="32" id="New_England_Patriots" class="icon-clock">New England Patriots</option>
+    </select>
+  </div>
+</section>
 
-</style>
-
-<body>
 
 <%= render 'calendar' %>
 

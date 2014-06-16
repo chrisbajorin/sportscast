@@ -35,45 +35,14 @@
         <li id="Nationals">Nationals</li>
       </ul>
 
-<!-- calendar partial -->
 
 <%= render 'calendar' %>
 
-<!-- calendar partial -->
-
-<!-- <table>
-  <thead>
-    <tr>
-      <th>Date</th>
-      <th>Away team</th>
-      <th>Home team</th>
-      <th>Time</th>
-      <th>City</th>
-      <th>State</th>
-      <th>Zip</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @baseballs.each do |baseball| %>
-      <tr>
-        <td><%= baseball.date %></td>
-        <td><%= baseball.away_team %></td>
-        <td><%= baseball.home_team %></td>
-        <td><%= baseball.time %></td>
-        <td><%= baseball.city %></td>
-        <td><%= baseball.state %></td>
-        <td><%= baseball.zip %></td>
-        <td><%= link_to 'Show', baseball %></td>
-        <td><%= link_to 'Edit', edit_baseball_path(baseball) %></td>
-        <td><%= link_to 'Destroy', baseball, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table> -->
 
 <br>
+<script type="text/javascript">
+  var baseballs = <%= @baseballs.to_json.html_safe %>
+</script>
 
 <%= link_to 'New Baseball', new_baseball_path %>
 

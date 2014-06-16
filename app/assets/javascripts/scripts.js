@@ -27,8 +27,14 @@ function sortCalendarData(objects, team_id) {
         if ( game.home_team == teamName ){
             var dateArray = game.date.split("-");
             var dateString = (dateArray[1]+"-"+dateArray[2]+"-"+dateArray[0]);
-            gameObjects[dateString] = ("<a href=\"footballs/"+game.id+"\"><p>" + game.away_team + " @<br> " + game.home_team + "</p><p>" + game.time + "</p></a>");
+            gameObjects[dateString] = ("<a class='calendar_entry' href=\"baseballs/"+game.id+"\"><p>" + game.away_team + " @<br> " + game.home_team + "</p><p class='game_time'>" + game.time + "</p></a>");
         }
     });
     return gameObjects;
 }
+
+$(document).foundation({
+    dropdown: {
+        active_class: 'open'
+    }
+});

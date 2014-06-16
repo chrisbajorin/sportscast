@@ -5,6 +5,11 @@ class FootballsController < ApplicationController
   # GET /footballs.json
   def index
     @footballs = Football.all
+    # file = "/morley.csv"
+    # open(file, "r+") do |f|
+    #   f.read
+    # end
+    file = File.open("morley.csv", 'r')
   end
 
   # GET /footballs/1
@@ -13,11 +18,12 @@ class FootballsController < ApplicationController
     game = Football.find_by_id(params[:id])
     football_game_id = game.game_id
     respond_to do |format|
-        format.html { @weather = Weather.where("game_id = ?", football_game_id) }
-        format.json { render json: Weather.where("game_id = ?", football_game_id) }
-      end
-      # binding.pry
+      format.html { @weather = Weather.where("game_id = ?", football_game_id) }
+      format.json { render json: Weather.where("game_id = ?", football_game_id) }
+    end
+    # binding.pry
   end
+
 
   # GET /footballs/new
   # def new
@@ -79,3 +85,4 @@ class FootballsController < ApplicationController
   #     params.require(:football).permit(:date, :away_team, :home_team, :time, :city, :state, :zip)
   #   end
 end
+

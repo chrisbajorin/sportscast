@@ -50,10 +50,3 @@ function checkWeatherCache(path) {
    });
 }
 
-
-function populateCalendar() {
-
-    $.ajax({
-        url:path
-    })
-}

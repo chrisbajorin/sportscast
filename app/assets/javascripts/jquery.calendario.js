@@ -276,9 +276,9 @@
 
 		},
 		setData : function( caldata ) {
-
-			caldata = caldata || {};
-			$.extend( this.caldata, caldata );
+			// caldata = caldata || {};
+			this.caldata = caldata || {};
+			// $.extend( this.caldata, caldata );
 			this._generateTemplate();
 
 		},

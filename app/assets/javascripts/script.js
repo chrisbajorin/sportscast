@@ -1,3 +1,4 @@
+
 $(document).ready(function(){
 
   //For axis begins:
@@ -239,7 +240,5 @@ function checkWeatherCache(path) {
 
 
             }); //document ready ends
-
-
 
 

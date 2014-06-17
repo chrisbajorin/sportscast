@@ -1,14 +1,14 @@
 <!-- Calendar -->
 
-<div>
-    <a href="#" data-dropdown="drop1" class="sport tiny radius button dropdown">Choose a Sport</a><br>
-    <ul id="drop1" data-dropdown-content class="f-dropdown">
-      <li id="baseball">Baseball</li>
-      <li id="football">Football</li>
-    </ul>
+<a href="#" data-dropdown="drop1" class="tiny radius button dropdown">Choose a Sport</a><br>
+<ul id="drop1" data-dropdown-content class="f-dropdown">
+  <li class="sport" id="baseball">Baseball</li>
+  <li class="sport" id="football">Football</li>
+</ul>
 
-</div>
-
+<a href="#" data-dropdown="drop2" class="tiny radius button dropdown">Choose a Team</a><br>
+<ul id="drop2" data-dropdown-content class="f-dropdown">
+</ul>
 
 <div class="container" class="body-gradient">
       <div class="custom-calendar-wrap custom-calendar-full">
@@ -26,7 +26,7 @@
         </div>
         <div id="calendar" class="fc-calendar-container"></div>
       </div>
-    </div><!-- /container -->
+    </div>
 
 
 
@@ -79,10 +79,9 @@
         } );
         */
         // gets sport to populate team dropdown.
-        var $sport = "";
-        $("li .sport").click(function(){
-
-          $sport = $(this).attr("id")
+        var $sport = '';
+        $("li.sport").click(function(){
+          $sport = $(this).attr("id");
           $teams = []
           if ($sport === "baseball") {
             $teams = baseballTeams;
@@ -90,11 +89,32 @@
           else if ($sport === "football") {
             $teams = footballTeams;
           }
+
+          var element = document.getElementById("drop2");
+          while (element.firstChild) {
+            element.removeChild(element.firstChild);
+          }
+
           $teams.forEach(function(team) {
             team_id = team.split(" ").join("_")
-            $("ul .teams").append("<li id=\""+team_id+"\">"+team+"</li>");
+            console.log(team_id);
+            $("ul#drop2").append("<li class='team' id=\""+team_id+"\">"+team+"</li>");
           })
 
+
+          $("li.team").click(function() {
+          console.log("Hi!");
+          var team = $(this).attr("id");
+          console.log(team)
+          // team_id = $(this).attr('id');
+          // $.ajax({
+          //   url=
+          // })
+          // objects = sortCalendarData(baseballs, team_id);
+          // cal.setData(objects);
+          // console.log(objects);
+          });
+
           })
 
 
@@ -102,16 +122,6 @@
 
 
 
-        $("li .team").click(function() {
-          // caldata : null;
 
-          $(".fc-content").removeClass("fc-content");
-          $(".calendar_entry").parent().remove();
-          // $("div").removeClass(".fc-content")
-          team_id = $(this).attr('id');
-          objects = sortCalendarData(baseballs, team_id);
-          cal.setData(objects);
-          console.log(objects);
-        });
       });
     </script>

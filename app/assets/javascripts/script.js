@@ -22,7 +22,7 @@ $(document).ready(function(){
       // var data; // a globals
 
       // data = json;
-      console.log(json);
+      // console.log(json);
       // visualizeit();
   });
 
@@ -30,10 +30,10 @@ $(document).ready(function(){
   // Need to convert this to json
   d3.csv("/morley.csv", function(error, csv) {
     var data = [];
-    console.log(csv);
+    // console.log(csv);
 
     csv.forEach(function(x,y) {
-      console.log(x);
+      // console.log(x);
       var e = Math.floor(x.Expt-1),
       r = Math.floor(x.Run-1),
       s = Math.floor(x.Speed),

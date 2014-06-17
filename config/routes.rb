@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'welcome/index'
+  get 'calendar' => "welcome#index", :as => "calendar"
 
   # root "welcome#index"
   root "users#new"

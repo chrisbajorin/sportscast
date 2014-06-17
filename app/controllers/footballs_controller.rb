@@ -3,8 +3,12 @@ class FootballsController < ApplicationController
   # before_action :set_football, only: [:show, :edit, :update, :destroy]
 
   def index
-    @footballs = Football.all
+    team = params[:name].split("_").join(" ")
 
+    respond_to do |format|
+      format.html { @games = Football.where("home_team = ?", team) }
+      format.json { render json: Football.where("home_team = ?", team) }
+    end
 #======== To read d3 csv begins
     file = "morley.csv"
     open(file, "r+") do |f|

@@ -52,14 +52,22 @@ function checkWeatherCache(path) {
 
 
 
-function getTeamGames(sport, team_name) {
-    sport = sport ="s";
-    $.ajax({
-        url: sport+"/name="+team_name,
-        type: "GET",
-        dataType: "json"
-    }).done(function(data){
-         console.log(data);
-    })
-}
+// function getTeamGames(sport, team_name) {
+//     $.ajax({
+//         url: sport+"/?name="+team_name,
+//         type: "GET",
+//         dataType: "json"
+//     }).done(function(data){
+//         // console.log(data);
+//         var gameObjects = {}
+//         data.forEach(function(game){
+//             var dateArray = game.date.split("-");
+//             var dateString = (dateArray[1]+"-"+dateArray[2]+"-"+dateArray[0]);
+//             gameObjects[dateString] = ("<a class='calendar_entry' href=\"baseballs/"+game.id+"\"><p>" + game.away_team + " @<br> " + game.home_team + "</p><p class='game_time'>" + game.time + "</p></a>");
+//             // console.log(game.date)
+//         });
+//         cal.setData(gameObjects)
+//     });
+
+// }
 

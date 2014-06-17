@@ -1,12 +1,13 @@
 body {
-  background-color: #708090;
+  background-color: RGBA(39, 40, 34, .85);
   color: #333;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
+}
 
-
-
+h1, h2, h3, h4, h5 h6 {
+  color: RGBA(232, 232, 232, 1);
 }
 
 p, ol, ul, td {
@@ -70,3 +71,4 @@ div {
     list-style: square;
   }
 }
+

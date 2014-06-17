@@ -39,7 +39,6 @@ function combineMinMeanMax(minArray, meanArray, maxArray){
 
 
 // calendar functionality
-
 function sortCalendarData(objects, team_id) {
     var teamName = team_id.split("_").join(" ");
     var gameObjects = {};

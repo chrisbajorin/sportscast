@@ -1,15 +1,5 @@
 <!-- Calendar -->
 
-<a href="#" data-dropdown="drop1" class="tiny radius button dropdown">Choose a Sport</a><br>
-<ul id="drop1" data-dropdown-content class="f-dropdown">
-  <li class="sport" id="baseball">Baseball</li>
-  <li class="sport" id="football">Football</li>
-</ul>
-
-<a href="#" data-dropdown="drop2" class="tiny radius button dropdown">Choose a Team</a><br>
-<ul id="drop2" data-dropdown-content class="f-dropdown">
-</ul>
-
 <div class="container" class="body-gradient">
       <div class="custom-calendar-wrap custom-calendar-full">
         <div class="custom-header clearfix">
@@ -29,99 +19,108 @@
     </div>
 
 
+<script type="text/javascript">
+  $(function() {
+    // defining calendar variables
+    var cal = $( '#calendar' ).calendario( {
+        onDayClick : function( $el, $contentEl, dateProperties ) {
 
-    <script type="text/javascript">
-      $(function() {
-        // defining calendar variables
-        var cal = $( '#calendar' ).calendario( {
-            onDayClick : function( $el, $contentEl, dateProperties ) {
-
-              for( var key in dateProperties ) {
-                console.log( key + ' = ' + dateProperties[ key ] );
-              }
-            },
-            // calendario paramater for starting object
-            caldata : null
-          } );
-        var $month = $( '#custom-month' ).html( cal.getMonthName() );
-        var $year = $( '#custom-year' ).html( cal.getYear() );
-
-        // function grabbing current month/year for use in navigation clicks
-        function updateMonthYear() {
-          $month.html( cal.getMonthName() );
-          $year.html( cal.getYear() );
-        }
-
-        // click functions for navigating calendar
-        $( '#custom-next' ).on( 'click', function() {
-          cal.gotoNextMonth( updateMonthYear );
-        } );
-        $( '#custom-prev' ).on( 'click', function() {
-          cal.gotoPreviousMonth( updateMonthYear );
-        } );
-        $( '#custom-current' ).on( 'click', function() {
-          cal.gotoNow( updateMonthYear );
-        } );
-
-
-        // you can also add more data later on. As an example:
-        /*
-        someElement.on( 'click', function() {
-
-          cal.setData( {
-            '03-01-2013' : '<a href="#">testing</a>',
-            '03-10-2013' : '<a href="#">testing</a>',
-            '03-12-2013' : '<a href="#">testing</a>'
-          } );
-          // goes to a specific month/year
-          cal.goto( 3, 2013, updateMonthYear );
-
-        } );
-        */
-        // gets sport to populate team dropdown.
-        var $sport = '';
-        $("li.sport").click(function(){
-          $sport = $(this).attr("id");
-          $teams = []
-          if ($sport === "baseball") {
-            $teams = baseballTeams;
+          for( var key in dateProperties ) {
+            console.log( key + ' = ' + dateProperties[ key ] );
           }
-          else if ($sport === "football") {
-            $teams = footballTeams;
-          }
+        },
+        // calendario paramater for starting object
+        caldata : null
+    } ),
+      $month = $( '#custom-month' ).html( cal.getMonthName() ),
+      $year = $( '#custom-year' ).html( cal.getYear() );
 
-          var element = document.getElementById("drop2");
-          while (element.firstChild) {
-            element.removeChild(element.firstChild);
-          }
+    // function grabbing current month/year for use in navigation clicks
+    function updateMonthYear() {
+      $month.html( cal.getMonthName() );
+      $year.html( cal.getYear() );
+    }
 
-          $teams.forEach(function(team) {
-            team_id = team.split(" ").join("_")
-            console.log(team_id);
-            $("ul#drop2").append("<li class='team' id=\""+team_id+"\">"+team+"</li>");
-          })
+    // click functions for navigating calendar
+    $( '#custom-next' ).on( 'click', function() {
+      cal.gotoNextMonth( updateMonthYear );
+    } );
+    $( '#custom-prev' ).on( 'click', function() {
+      cal.gotoPreviousMonth( updateMonthYear );
+    } );
+    $( '#custom-current' ).on( 'click', function() {
+      cal.gotoNow( updateMonthYear );
+    } );
 
 
-          $("li.team").click(function() {
-          console.log("Hi!");
-          var team = $(this).attr("id");
-          console.log(team)
-          // team_id = $(this).attr('id');
-          // $.ajax({
-          //   url=
-          // })
-          // objects = sortCalendarData(baseballs, team_id);
-          // cal.setData(objects);
-          // console.log(objects);
+    // you can also add more data later on. As an example:
+    /*
+    someElement.on( 'click', function() {
+
+      cal.setData( {
+        '03-01-2013' : '<a href="#">testing</a>',
+        '03-10-2013' : '<a href="#">testing</a>',
+        '03-12-2013' : '<a href="#">testing</a>'
+      } );
+      // goes to a specific month/year
+      cal.goto( 3, 2013, updateMonthYear );
+
+    } );
+    */
+
+    // gets sport to populate team dropdown.
+    var $sport = '';
+    $("li.sport").click(function(){
+      $sport = $(this).attr("id");
+      $teams = []
+      if ($sport === "baseball") {
+        $teams = baseballTeams;
+      }
+      else if ($sport === "football") {
+        $teams = footballTeams;
+      }
+
+      var element = document.getElementById("drop2");
+      while (element.firstChild) {
+        element.removeChild(element.firstChild);
+      }
+
+      $teams.forEach(function(team) {
+        team_id = team.split(" ").join("_")
+        // console.log(team_id);
+        $("ul#drop2").append("<li class='team' id=\""+team_id+"\">"+team+"</li>");
+      })
+
+
+      $("li.team").click(function() {
+        var team = $(this).attr("id");
+        console.log($sport)
+
+        $.ajax({
+            url: $sport+"s/?name="+team,
+            type: "GET",
+            dataType: "json"
+        }).done(function(data){
+          console.log(data);
+          var gameObjects = {}
+          data.forEach(function(game){
+              var dateArray = game.date.split("-");
+              var dateString = (dateArray[1]+"-"+dateArray[2]+"-"+dateArray[0]);
+              gameObjects[dateString] = ("<a class='calendar_entry' href=\""+$sport+"s/"+game.id+"\"><p>" + game.away_team + " @<br> " + game.home_team + "</p><p class='game_time'>" + game.time + "</p></a>");
+            // console.log(game.date)
           });
+          cal.setData(gameObjects)
+        });
+      // var games = getTeamGames($sport, team);
 
-          })
-
-
-
-
-
-
-
+      // team_id = $(this).attr('id');
+      // $.ajax({
+      //   url=
+      // })
+      // objects = sortCalendarData(baseballs, team_id);
+      // cal.setData(objects);
+      // console.log(objects);
       });
-    </script>
+    });
+  });
+</script>

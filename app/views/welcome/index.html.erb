@@ -1,7 +1,18 @@
+<a href="#" data-dropdown="drop1" class="tiny radius button dropdown">Choose a Sport</a><br>
+<ul id="drop1" data-dropdown-content class="f-dropdown">
+  <li class="sport" id="baseball">Baseball</li>
+  <li class="sport" id="football">Football</li>
+</ul>
+
+<a href="#" data-dropdown="drop2" class=" z-index-dropdown tiny radius button dropdown">Choose a Team</a><br>
+<ul id="drop2" data-dropdown-content class="f-dropdown">
+</ul>
+
 
 <%= render "calendar" %>
 
 
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <%= stylesheet_link_tag('application', :media => 'all') %>
 <%= javascript_include_tag "application" %>
 

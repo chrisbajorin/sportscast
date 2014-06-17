@@ -52,18 +52,18 @@ d3.box = function() {
       var center = g.selectAll("line.center")
       .data(whiskerData ? [whiskerData] : []);
 
-      center.enter().insert("line", "rect")
-      .attr("class", "center")
-      .attr("x1", width / 2)
-      .attr("y1", function(d) { return x0(d[0]); })
-      .attr("x2", width / 2)
-      .attr("y2", function(d) { return x0(d[1]); })
-      .style("opacity", 1e-6)
-      .transition()
-      .duration(duration)
-      .style("opacity", 1)
-      .attr("y1", function(d) { return x1(d[0]); })
-      .attr("y2", function(d) { return x1(d[1]); });
+      // center.enter().insert("line", "rect")
+      // .attr("class", "center")
+      // .attr("x1", width / 2)
+      // .attr("y1", function(d) { return x0(d[0]); })
+      // .attr("x2", width / 2)
+      // .attr("y2", function(d) { return x0(d[1]); })
+      // .style("opacity", 1e-6)
+      // .transition()
+      // .duration(duration)
+      // .style("opacity", 1)
+      // .attr("y1", function(d) { return x1(d[0]); })
+      // .attr("y2", function(d) { return x1(d[1]); });
 
       center.transition()
       .duration(duration)
@@ -122,18 +122,18 @@ d3.box = function() {
       var whisker = g.selectAll("line.whisker")
       .data(whiskerData || []);
 
-      whisker.enter().insert("line", "circle, text")
-      .attr("class", "whisker")
-      .attr("x1", 0)
-      .attr("y1", x0)
-      .attr("x2", width)
-      .attr("y2", x0)
-      .style("opacity", 1e-6)
-      .transition()
-      .duration(duration)
-      .attr("y1", x1)
-      .attr("y2", x1)
-      .style("opacity", 1);
+      // whisker.enter().insert("line", "circle, text")
+      // .attr("class", "whisker")
+      // .attr("x1", 0)
+      // .attr("y1", x0)
+      // .attr("x2", width)
+      // .attr("y2", x0)
+      // .style("opacity", 1e-6)
+      // .transition()
+      // .duration(duration)
+      // .attr("y1", x1)
+      // .attr("y2", x1)
+      // .style("opacity", 1);
 
       whisker.transition()
       .duration(duration)
@@ -204,18 +204,18 @@ d3.box = function() {
       var whiskerTick = g.selectAll("text.whisker")
       .data(whiskerData || []);
 
-      whiskerTick.enter().append("text")
-      .attr("class", "whisker")
-      .attr("dy", ".3em")
-      .attr("dx", 6)
-      .attr("x", width)
-      .attr("y", x0)
-      .text(format)
-      .style("opacity", 1e-6)
-      .transition()
-      .duration(duration)
-      .attr("y", x1)
-      .style("opacity", 1);
+      // whiskerTick.enter().append("text")
+      // .attr("class", "whisker")
+      // .attr("dy", ".3em")
+      // .attr("dx", 6)
+      // .attr("x", width)
+      // .attr("y", x0)
+      // .text(format)
+      // .style("opacity", 1e-6)
+      // .transition()
+      // .duration(duration)
+      // .attr("y", x1)
+      // .style("opacity", 1);
 
       whiskerTick.transition()
       .duration(duration)
@@ -229,68 +229,69 @@ d3.box = function() {
       .style("opacity", 1e-6)
       .remove();
     });
-d3.timer.flush();
-}
+    d3.timer.flush();
+  }
 
-box.width = function(x) {
-  if (!arguments.length) return width;
-  width = x;
-  return box;
-};
+  box.width = function(x) {
+    if (!arguments.length) return width;
+      width = x;
+      return box;
+    };
 
-box.height = function(x) {
-  if (!arguments.length) return height;
-  height = x;
-  return box;
-};
+    box.height = function(x) {
+      if (!arguments.length) return height;
+        height = x;
+        return box;
+      };
 
-box.tickFormat = function(x) {
-  if (!arguments.length) return tickFormat;
-  tickFormat = x;
-  return box;
-};
+      box.tickFormat = function(x) {
+        if (!arguments.length) return tickFormat;
+          tickFormat = x;
+          return box;
+        };
 
-box.duration = function(x) {
-  if (!arguments.length) return duration;
-  duration = x;
-  return box;
-};
+        box.duration = function(x) {
+          if (!arguments.length) return duration;
+            duration = x;
+            return box;
+          };
 
-box.domain = function(x) {
-  if (!arguments.length) return domain;
-  domain = x == null ? x : d3.functor(x);
-  return box;
-};
+          box.domain = function(x) {
+            if (!arguments.length) return domain;
+              domain = x == null ? x : d3.functor(x);
+              return box;
+            };
 
-box.value = function(x) {
-  if (!arguments.length) return value;
-  value = x;
-  return box;
-};
+            box.value = function(x) {
+              if (!arguments.length) return value;
+                value = x;
+                return box;
+              };
 
-box.whiskers = function(x) {
-  if (!arguments.length) return whiskers;
-  whiskers = x;
-  return box;
-};
+              // box.whiskers = function(x) {
+                //   if (!arguments.length) return whiskers;
+                //   whiskers = x;
+                //   return box;
+              // };
 
-box.quartiles = function(x) {
-  if (!arguments.length) return quartiles;
-  quartiles = x;
-  return box;
-};
+              box.quartiles = function(x) {
+                if (!arguments.length) return quartiles;
+                  quartiles = x;
+                  return box;
+                };
 
-return box;
-};
+                return box;
+              };
 
-function boxWhiskers(d) {
-  return [0, d.length - 1];
-}
+              function boxWhiskers(d) {
+                return [0, d.length - 1];
+              }
 
-function boxQuartiles(d) {
-  return [
-  d3.quantile(d, .25),
-  d3.quantile(d, .5),
-  d3.quantile(d, .75)
-  ];
-};
+              function boxQuartiles(d) {
+                return [
+                  d3.quantile(d, .25),
+                  d3.quantile(d, .5),
+                  d3.quantile(d, .75)
+                ];
+              };
+

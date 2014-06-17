@@ -28,3 +28,22 @@ body {
   stroke: #ccc;
 }
 //For d3 box plot ends
+
+//For d3 axis begins:
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #fff;
+  shape-rendering: crispEdges;
+}
+
+.y.axis path {
+  display: none;
+}
+
+.y.axis line {
+  stroke: #fff;
+  stroke-dasharray: 2,2;
+}
+//For d3 axis ends

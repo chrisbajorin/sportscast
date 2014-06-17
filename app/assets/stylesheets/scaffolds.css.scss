@@ -10,8 +10,8 @@ h1, h2, h3, h4, h5 h6 {
   color: RGBA(232, 232, 232, 1);
 }
 
-p, ol, ul, td {
-  font-family: verdana, arial, helvetica, sans-serif;
+p, ol, ul, td, ul, li {
+  font-family: "Helvetica Neue", verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
 }
@@ -25,7 +25,7 @@ pre {
 a {
   color: #000;
   &:visited {
-    color: #666;
+    color: #fff;
   }
   &:hover {
     color: #fff;
@@ -75,7 +75,6 @@ div {
 .dropdown_styles {
   color: #fff;
   padding: 5px 0px 5px 25px;
-  font-family: "Helvetica Neue";
 }
 
 

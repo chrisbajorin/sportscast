@@ -1,12 +1,13 @@
 /* this should load after calendar.css */
-
+/* this controls positioning */
 .custom-calendar-full {
 	position: absolute;
-	top: 24px;
+	top: -65px;
 	bottom: 0px;
 	left: 0px;
 	width: 100%;
-	height: auto;
+	height: 95%;
+	z-index: -1000;
 }
 
 .fc-calendar-container {

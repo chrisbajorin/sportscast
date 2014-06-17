@@ -1,10 +1,9 @@
-
 $(document).ready(function(){
 
 
   //For axis begins:
   var margin = {top: 20, right: 0, bottom: 20, left: 0},
-  width = 1000 - margin.left - margin.right,
+  width = 1500 - margin.left - margin.right,
   height = 500 - margin.top - margin.bottom;
 
   var formatNumber = d3.format(".1f");
@@ -32,10 +31,12 @@ $(document).ready(function(){
 //Axes plots
   var svg = d3.select("body").append("svg")
   .attr("class", "axes_graph")
+  .attr("id", "temp")
   .attr("width", width + margin.left + margin.right)
   .attr("height", height + margin.top + margin.bottom)
-  .append("g")
-  .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+//Creates the g class transform
+  // .append("g")
+  // .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 
   var gy = svg.append("g")
@@ -118,12 +119,26 @@ $(document).ready(function(){
           });
 
 
-          chart.domain([min, max]);
+  chart.domain([min, max]);
 
-          //svg append for box plot
-          var svg = d3.select("body").selectAll("svg")
-        // svg.selectAll("axes_graph")
+//svg append for box plot to node
+          // var svg = d3.select("svg")
+
+//v1 Appends to the body html page
+           // var svg = d3.select("body").selectAll("svg")
+
+//v2 Appends to the graph
+          // var svg = d3.select("body")
+          // .selectAll("svg")
+
+//v3 Appends to the body of the chart, but collapses
+  //notes: selects to a node of the y-axis
+   // var svg = d3.select("svg").append("g")
+   d3.select("svg")
+       // var box = d3.select("svg")
+        // svg.append("g")
           .data(data)
+          // .enter()
           .enter().append("svg")
           .attr("class", "box")
           // .attr("box", 3.5)
@@ -131,6 +146,7 @@ $(document).ready(function(){
           .attr("height", height + margin.bottom + margin.top)
           .append("g")
           .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+          // .enter()
           .call(chart);
 
           //original box plot append box

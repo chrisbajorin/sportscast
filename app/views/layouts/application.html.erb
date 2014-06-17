@@ -1,41 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title><%= content_for?(:title) ? yield(:title) : "SPORSTCAST" %></title>
-  <!--    copied below to rails -->
-  <link rel="shortcut icon" href="../favicon.ico">
+	<title><%= content_for?(:title) ? yield(:title) : "SPORSTCAST" %></title>
+	<!--    copied below to rails -->
+	<link rel="shortcut icon" href="../favicon.ico">
 
-  <!-- To call stylesheet, javascripts, and d3 scripts begins-->
-  <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+	<!-- To call stylesheet, javascripts, and d3 scripts begins-->
+	<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 
-  <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
-  <!-- To call stylesheet, javascripts, and d3 scripts ends-->
-  <%= stylesheet_link_tag('application', :media => 'all') %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js"></script>
+	<!-- To call stylesheet, javascripts, and d3 scripts ends-->
+	<%= stylesheet_link_tag('application', :media => 'all') %>
+	<%= javascript_include_tag "application" %>
+	<%= csrf_meta_tags %>
 
 </head>
 
 <body>
-  <!-- Users authentication begins-->
-  <div id="user_nav" class="breadcrumbs">
-    <% if current_user %>
-    Logged in as <%= current_user.email %>.
-    <%= link_to "Log out", log_out_path %>
-    <% else %>
-    <%= link_to "Sign up", sign_up_path %>
-    <%= link_to "log in", log_in_path %>
-    <% end %>
-  </div>
+	<!-- Users authentication begins-->
+  <div id="user_nav"
 
-  <% flash.each do |name, msg| %>
-  <%= content_tag :div, msg, :id => "flash_#{name}" %>
-  <% end %>
-  <!-- Users authentication ends-->
-  <%= yield %>
+			<% if current_user %>
+			Logged in as <%= current_user.email %>
+			<%= link_to "Log out", log_out_path %>
+			<% else %>
+			<nav class="top-bar">
+				<ul class="title-area">
+					<li class="name">
+						<h1><%= link_to "SPORTSCAST", sign_up_path %></a></h1>
+					</li>
+				</ul>
+			<section class="top-bar-section">
+				<ul class="right">
+					<li class="divider"></li>
+					<li><%= link_to "Log in", log_in_path %></li>
+					<li class="divider"></li>
+					<li><%= link_to "Sign up", sign_up_path %></li>
+			</ul>
+		</div>
+			<% end %>
+
+			<% flash.each do |name, msg| %>
+			<%= content_tag :div, msg, :id => "flash_#{name}" %>
+		<% end %>
+	</div></div>
+	<!-- Users authentication ends-->
+	<%= yield %>
 
 </body>
 </html>

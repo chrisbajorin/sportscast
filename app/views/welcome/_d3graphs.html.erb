@@ -10,7 +10,7 @@ $(function() {
   var formatNumber = d3.format(".1f");
 
   var y = d3.scale.linear()
-  .domain([0, 1e6])
+  .domain([0, 1e7])
   .range([height, 0]);
 
   var x = d3.time.scale()
@@ -46,8 +46,9 @@ $(function() {
   .attr("transform", "translate(0," + height + ")")
   .call(xAxis);
 
+//Range for y axis
   setTimeout(function() {
-    y.domain([0, 3e6]);
+    y.domain([0, 80e6]);
 
     gy.transition()
     .duration(2500)
@@ -89,14 +90,6 @@ $(function() {
   .height(height);
   // For box plot ends
 
-
-  // d3.json("/wunderground.json", function(error, json) {
-    //   // var data; // a globals
-
-    //   // data = json;
-    //   console.log(json);
-    //   // visualizeit();
-  // });
 
   d3.csv("/morley.csv", function(error, csv) {
     var data = [];

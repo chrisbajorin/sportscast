@@ -11,10 +11,13 @@ body {
   font: 10px sans-serif;
 }
 
-.box line,
+.box line{
+  stroke: #7AAEE8;
+}
+
 .box rect,
 .box circle {
-  fill: #fff;
+  fill: #CDDBFF;
   stroke: #000;
   stroke-width: 1.5px;
 }

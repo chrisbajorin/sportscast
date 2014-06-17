@@ -1,6 +1,10 @@
 
 // $(document).ready(function(){
 
+// function d3_presentation(){
+// // $(document).ready(function(){
+
+
 //   //For axis begins:
 //   var margin = {top: 20, right: 0, bottom: 20, left: 0},
 //   width = 1500 - margin.left - margin.right,
@@ -222,6 +226,30 @@
 
 
 
+
 // }); //document ready ends
+
+
+
+// function checkWeatherCache(path) {
+//     var $weatherList = $("#weather-list");
+
+//     $.ajax({
+//         url: path,
+//         type: "GET",
+//         dataType: "json"
+//     }).done(function(data) {
+//         console.log(data)
+
+//         data.forEach(function(weather){
+//             console.log(weather)
+//             var weatherTemplate = _.template($("#weatherTemplate").html(), weather);
+//             $weatherList.append(weatherTemplate);
+//         })
+//    });
+// }
+
+// // }); //document ready ends
+// }; // end of d3_presentation function
 
 

@@ -207,23 +207,6 @@ function splitToNumArray(string){
     return results_array;
 }
 
-function checkWeatherCache(path) {
-    var $weatherList = $("#weather-list");
-
-    $.ajax({
-        url: path,
-        type: "GET",
-        dataType: "json"
-    }).done(function(data) {
-        console.log(data)
-
-        data.forEach(function(weather){
-            console.log(weather)
-            var weatherTemplate = _.template($("#weatherTemplate").html(), weather);
-            $weatherList.append(weatherTemplate);
-        })
-   });
-}
 
 
 
@@ -240,6 +223,6 @@ function checkWeatherCache(path) {
 
 
 
-            }); //document ready ends
+}); //document ready ends
 
 

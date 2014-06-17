@@ -50,10 +50,16 @@ function checkWeatherCache(path) {
    });
 }
 
-// function getTeamGames(team_name) {
 
-//     $.ajax({
-//         url: ""+
-//     })
 
-// }
+function getTeamGames(sport, team_name) {
+    sport = sport ="s";
+    $.ajax({
+        url: sport+"/name="+team_name,
+        type: "GET",
+        dataType: "json"
+    }).done(function(data){
+         console.log(data);
+    })
+}
+

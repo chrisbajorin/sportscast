@@ -159,3 +159,11 @@ a {
 		text-align: center;
 	}
 }
+
+.z-index-dropdown {
+	z-index: +900;
+}
+
+#drop1 {
+	z-index: +1000;
+}

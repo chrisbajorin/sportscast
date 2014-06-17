@@ -1,5 +1,9 @@
+
+// $(document).ready(function(){
+
 // function d3_presentation(){
 // // $(document).ready(function(){
+
 
 //   //For axis begins:
 //   var margin = {top: 20, right: 0, bottom: 20, left: 0},
@@ -206,6 +210,27 @@
 //     return results_array;
 // }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// }); //document ready ends
+
+
+
 // function checkWeatherCache(path) {
 //     var $weatherList = $("#weather-list");
 
@@ -227,4 +252,4 @@
 // // }); //document ready ends
 // }; // end of d3_presentation function
 
-// d3_presentation();
+

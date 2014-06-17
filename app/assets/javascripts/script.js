@@ -1,7 +1,6 @@
 
 $(document).ready(function(){
 
-
   //For axis begins:
   var margin = {top: 20, right: 0, bottom: 20, left: 0},
   width = 1500 - margin.left - margin.right,
@@ -134,7 +133,7 @@ $(document).ready(function(){
 //v3 Appends to the body of the chart, but collapses
   //notes: selects to a node of the y-axis
    // var svg = d3.select("svg").append("g")
-   d3.select("svg")
+  var svg = d3.select("svg")
        // var box = d3.select("svg")
         // svg.append("g")
           .data(data)

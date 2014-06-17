@@ -1,93 +1,93 @@
 // This script is to call d3 box plot
 
-$(document).ready(function(){
+// $(document).ready(function(){
 
-  var margin = {top: 10, right: 50, bottom: 20, left: 50},
-  width = 120 - margin.left - margin.right,
-  height = 500 - margin.top - margin.bottom;
-
-
-  var min = Infinity,
-  max = -Infinity;
-
-  var chart = d3.box()
-  .whiskers(iqr(1.3))
-  .width(width)
-  .height(height);
+//   var margin = {top: 10, right: 50, bottom: 20, left: 50},
+//   width = 120 - margin.left - margin.right,
+//   height = 500 - margin.top - margin.bottom;
 
 
+//   var min = Infinity,
+//   max = -Infinity;
+
+//   var chart = d3.box()
+//   .whiskers(iqr(1.3))
+//   .width(width)
+//   .height(height);
 
 
-  d3.json("/wunderground.json", function(error, json) {
-      // var data; // a globals
-
-      // data = json;
-      // console.log(json);
-      // visualizeit();
-  });
 
 
-  // Need to convert this to json
-  d3.csv("/morley.csv", function(error, csv) {
-    var data = [];
-    // console.log(csv);
+//   d3.json("/wunderground.json", function(error, json) {
+//       // var data; // a globals
 
-    csv.forEach(function(x,y) {
-      // console.log(x);
-      var e = Math.floor(x.Expt-1),
-      r = Math.floor(x.Run-1),
-      s = Math.floor(x.Speed),
-      d = data[e];
-      if (!d) d = data[e] = [s];
-      else d.push(s);
-        if (s > max) max = s;
-          if (s < min) min = s;
-          });
+//       // data = json;
+//       // console.log(json);
+//       // visualizeit();
+//   });
 
 
-          chart.domain([min, max]);
+//   // Need to convert this to json
+//   d3.csv("/morley.csv", function(error, csv) {
+//     var data = [];
+//     // console.log(csv);
 
-          var svg = d3.select("body").selectAll("svg")
-          .data(data)
-          .enter().append("svg")
-          .attr("class", "box")
-          .attr("width", width + margin.left + margin.right)
-          .attr("height", height + margin.bottom + margin.top)
-          .append("g")
-          .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
-          .call(chart);
+//     csv.forEach(function(x,y) {
+//       // console.log(x);
+//       var e = Math.floor(x.Expt-1),
+//       r = Math.floor(x.Run-1),
+//       s = Math.floor(x.Speed),
+//       d = data[e];
+//       if (!d) d = data[e] = [s];
+//       else d.push(s);
+//         if (s > max) max = s;
+//           if (s < min) min = s;
+//           });
 
-          setInterval(function() {
-            svg.datum(randomize).call(chart.duration(1000));
-          }, 2000);
-        });
 
-        function randomize(d) {
-          if (!d.randomizer) d.randomizer = randomizer(d);
-            return d.map(d.randomizer);
-          }
+//           chart.domain([min, max]);
 
-          function randomizer(d) {
-            var k = d3.max(d) * .02;
-            return function(d) {
-              return Math.max(min, Math.min(max, d + k * (Math.random() - .5)));
-            };
-          }
+//           var svg = d3.select("body").selectAll("svg")
+//           .data(data)
+//           .enter().append("svg")
+//           .attr("class", "box")
+//           .attr("width", width + margin.left + margin.right)
+//           .attr("height", height + margin.bottom + margin.top)
+//           .append("g")
+//           .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+//           .call(chart);
 
-          // Returns a function to compute the interquartile range.
-          function iqr(k) {
-            return function(d, i) {
-              var q1 = d.quartiles[0],
-              q3 = d.quartiles[2],
-              iqr = (q3 - q1) * k,
-              i = -1,
-              j = d.length;
-              while (d[++i] < q1 - iqr);
-                while (d[--j] > q3 + iqr);
-                  return [i, j];
-                };
-              }
+//           setInterval(function() {
+//             svg.datum(randomize).call(chart.duration(1000));
+//           }, 2000);
+//         });
 
-            });
+//         function randomize(d) {
+//           if (!d.randomizer) d.randomizer = randomizer(d);
+//             return d.map(d.randomizer);
+//           }
+
+//           function randomizer(d) {
+//             var k = d3.max(d) * .02;
+//             return function(d) {
+//               return Math.max(min, Math.min(max, d + k * (Math.random() - .5)));
+//             };
+//           }
+
+//           // Returns a function to compute the interquartile range.
+//           function iqr(k) {
+//             return function(d, i) {
+//               var q1 = d.quartiles[0],
+//               q3 = d.quartiles[2],
+//               iqr = (q3 - q1) * k,
+//               i = -1,
+//               j = d.length;
+//               while (d[++i] < q1 - iqr);
+//                 while (d[--j] > q3 + iqr);
+//                   return [i, j];
+//                 };
+//               }
+
+//             });
 
 

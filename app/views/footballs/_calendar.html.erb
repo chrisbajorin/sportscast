@@ -65,7 +65,10 @@
 
         } );
         */
-        $("p").click(function() {
+        $("li").click(function() {
+
+          $("#drop1").removeClass("open");
+          $()
 
           team_id = $(this).attr('id');
           objects = sortCalendarData(footballs, team_id);

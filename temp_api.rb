@@ -84,52 +84,52 @@ game_array.each do |game|
   hum = []
   cache = Weather.new({game_id: game.game_id})
   if cache.class.exists?(game_id: game.game_id) == false
-    for i in 1..6
+    for i in 1..10
       date_array = game.date.split("-")
       date_array[0] = date_array[0].to_i - i
       game_date = date_array.join("-")
-      url = "http://api.wunderground.com/api/#{ENV['WUNDERGROUND_CLIENT_ID']}/history_#{game[:date].gsub(/-/,"")}/q/#{game[:state]}/#{game[:city].gsub(/ /,"_")}.json"
+      url = "http://api.wunderground.com/api/#{ENV['WUNDERGROUND_CLIENT_ID']}/history_#{game_date.gsub(/-/,"")}/q/#{game[:state]}/#{game[:city].gsub(/ /,"_")}.json"
       response = HTTParty.get(url)
-      if response[0] != nil
+      if response["response"] != nil
         mintemp << response['history']['dailysummary'][0]["mintempi"]
         meantemp << response['history']['dailysummary'][0]["meantempi"]
         maxtemp << response['history']['dailysummary'][0]["maxtempi"]
         minwind << response['history']['dailysummary'][0]["minwspdi"]
         meanwind << response['history']['dailysummary'][0]["meanwindspdi"]
         maxwind << response['history']['dailysummary'][0]["maxwspdi"]
-        precip << response['history']['dailysummary'][0][]["precipi"]
-        cldcvr << response['history']['observations'[15]["conds"]
+        precip << response['history']['dailysummary'][0]["precipi"]
+        cldcvr << response['history']['observations'][15]["conds"]
         hum << response['history']['dailysummary'][0]["humidity"]
       else
-        mintemp << "nil"
-        meantemp << "nil"
-        maxtemp << "nil"
-        minwind << "nil"
-        meanwind << "nil"
-        maxwind << "nil"
-        precip << "nil"
-        cldcvr << "nil"
-        hum << "nil"
+        mintemp << "0"
+        meantemp << "0"
+        maxtemp << "0"
+        minwind << "0"
+        meanwind << "0"
+        maxwind << "0"
+        precip << "0"
+        cldcvr << "0"
+        hum << "0"
         # puts "none"
       end
       puts i
-      sleep 0.1
+      sleep 6
     end
     cache = Weather.new({
-          sport: game.class.name,
-          game_id: game.game_id,
-          min_temp: mintemp.join(","),
-          mean_temp: meantemp.join(","),
-          max_temp: maxtemp.join(","),
-          min_wind: minwind.join(","),
-          mean_wind: meanwind.join(","),
-          max_wind: maxwind.join(","),
-          precipitation: precip.join(","),
-          cloud_cover: cldcvr.join(","),
-          humidity: hum.join(",")
+      sport: game.class.name,
+      game_id: game.game_id,
+      min_temp: mintemp.join(","),
+      mean_temp: meantemp.join(","),
+      max_temp: maxtemp.join(","),
+      min_wind: minwind.join(","),
+      mean_wind: meanwind.join(","),
+      max_wind: maxwind.join(","),
+      precipitation: precip.join(","),
+      cloud_cover: cldcvr.join(","),
+      humidity: hum.join(",")
         })
     cache.save
-    sleep 40
+    sleep 10
   else
     puts "entry exists already"
   end

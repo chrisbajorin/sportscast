@@ -66,7 +66,10 @@
         } );
         */
         $("li").click(function() {
-
+          caldata : null;
+          $(".fc-content").removeClass("fc-content");
+          $(".calendar_entry").parent().remove();
+          // $("div").removeClass(".fc-content")
           team_id = $(this).attr('id');
           objects = sortCalendarData(baseballs, team_id);
           cal.setData(objects);

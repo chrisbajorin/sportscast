@@ -12,61 +12,18 @@ class BaseballsController < ApplicationController
   def show
     game = Baseball.find_by_id(params[:id])
     baseball_game_id = game.game_id
+    # checks for existance of entry. if not, calls api and saves.
+    # if Weather.where("game_id = ?", baseball_game_id).exists? == false
+    #   call_weather_api("Baseball", baseball_game_id)
+    # end
+
     respond_to do |format|
-        format.html { @weather = Weather.where("game_id = ?", baseball_game_id) }
-        format.json { render json: Weather.where("game_id = ?", baseball_game_id) }
-      end
+      format.html { @weather = Weather.where("game_id = ?", baseball_game_id) }
+      format.json { render json: Weather.where("game_id = ?", baseball_game_id) }
+    end
       # binding.pry
   end
 
-  # GET /baseballs/new
-  def new
-    @baseball = Baseball.new
-  end
-
-  # GET /baseballs/1/edit
-  def edit
-  end
-
-  # POST /baseballs
-  # POST /baseballs.json
-  def create
-    @baseball = Baseball.new(baseball_params)
-
-    respond_to do |format|
-      if @baseball.save
-        format.html { redirect_to @baseball, notice: 'Baseball was successfully created.' }
-        format.json { render :show, status: :created, location: @baseball }
-      else
-        format.html { render :new }
-        format.json { render json: @baseball.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PATCH/PUT /baseballs/1
-  # PATCH/PUT /baseballs/1.json
-  def update
-    respond_to do |format|
-      if @baseball.update(baseball_params)
-        format.html { redirect_to @baseball, notice: 'Baseball was successfully updated.' }
-        format.json { render :show, status: :ok, location: @baseball }
-      else
-        format.html { render :edit }
-        format.json { render json: @baseball.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /baseballs/1
-  # DELETE /baseballs/1.json
-  def destroy
-    @baseball.destroy
-    respond_to do |format|
-      format.html { redirect_to baseballs_url, notice: 'Baseball was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

@@ -1,38 +1,38 @@
-<h4>Listing baseballs</h4>
+<!-- <h4>Listing baseballs</h4> -->
 
-  <a href="#" data-dropdown="drop1" class="tiny success radius button dropdown">Dropdown Button</a><br>
+  <a href="#" data-dropdown="drop1" class="tiny radius button dropdown">BASEBALL TEAMS</a><br>
       <ul id="drop1" data-dropdown-content class="f-dropdown">
-        <li id="Orioles">Orioles</li>
-        <li id="AL_All_Stars">Al All-Stars</li>
-        <li id="Red_Sox">Red Sox</li>
-        <li id="White Sox">White Sox</li>
-        <li id="Indians">Indians</li>
-        <li id="Tigers">Tigers</li>
-        <li id="Astros">Astros</li>
-        <li id="Royals">Royals</li>
-        <li id="Angels">Angels</li>
-        <li id="Twins">Twins</li>
-        <li id="Yankees">Yankees</li>
-        <li id="Athletics">Athletics</li>
-        <li id="Mariners">Mariners</li>
-        <li id="Rays">Rays</li>
-        <li id="Rangers">Rangers</li>
-        <li id="Blue Jays">Blue Jays</li>
-        <li id="Cubs">Cubs</li>
-        <li id="D-backs">D-backs</li>
-        <li id="Cubs">Cubs</li>
-        <li id="Reds">Reds</li>
-        <li id="Rockies">Rockies</li>
-        <li id="Dodgers">Dodgers</li>
-        <li id="Marlins">Marlins</li>
-        <li id="Brewers">Brewers</li>
-        <li id="Mets">Mets</li>
-        <li id="Phillies">Phillies</li>
-        <li id="Pirates">Pirates</li>
-        <li id="Padres">Padres</li>
-        <li id="Giants">Giants</li>
-        <li id="Cardinals">Cardinals</li>
-        <li id="Nationals">Nationals</li>
+        <li id="Orioles" class="dropdown_styles">Orioles</li>
+        <li id="AL_All_Stars" class="dropdown_styles">Al All-Stars</li>
+        <li id="Red_Sox" class="dropdown_styles">Red Sox</li>
+        <li id="White Sox" class="dropdown_styles">White Sox</li>
+        <li id="Indians" class="dropdown_styles">Indians</li>
+        <li id="Tigers" class="dropdown_styles">Tigers</li>
+        <li id="Astros" class="dropdown_styles">Astros</li>
+        <li id="Royals" class="dropdown_styles">Royals</li>
+        <li id="Angels" class="dropdown_styles">Angels</li>
+        <li id="Twins" class="dropdown_styles">Twins</li>
+        <li id="Yankees" class="dropdown_styles">Yankees</li>
+        <li id="Athletics" class="dropdown_styles">Athletics</li>
+        <li id="Mariners" class="dropdown_styles">Mariners</li>
+        <li id="Rays" class="dropdown_styles">Rays</li>
+        <li id="Rangers" class="dropdown_styles">Rangers</li>
+        <li id="Blue Jays" class="dropdown_styles">Blue Jays</li>
+        <li id="Cubs" class="dropdown_styles">Cubs</li>
+        <li id="D-backs" class="dropdown_styles">D-backs</li>
+        <li id="Cubs" class="dropdown_styles">Cubs</li>
+        <li id="Reds" class="dropdown_styles">Reds</li>
+        <li id="Rockies" class="dropdown_styles">Rockies</li>
+        <li id="Dodgers" class="dropdown_styles">Dodgers</li>
+        <li id="Marlins" class="dropdown_styles">Marlins</li>
+        <li id="Brewers" class="dropdown_styles">Brewers</li>
+        <li id="Mets" class="dropdown_styles">Mets</li>
+        <li id="Phillies" class="dropdown_styles">Phillies</li>
+        <li id="Pirates" class="dropdown_styles">Pirates</li>
+        <li id="Padres" class="dropdown_styles">Padres</li>
+        <li id="Giants" class="dropdown_styles">Giants</li>
+        <li id="Cardinals" class="dropdown_styles">Cardinals</li>
+        <li id="Nationals" class="dropdown_styles">Nationals</li>
       </ul>
 
 
@@ -44,7 +44,6 @@
   var baseballs = <%= @baseballs.to_json.html_safe %>
 </script>
 
-<%= link_to 'New Baseball', new_baseball_path %>
 
 <!-- linking to all css and js in the asset pipeline. it only works here and not in the laypout/app.html.erb ?  -->
 <%= stylesheet_link_tag('application', :media => 'all') %>

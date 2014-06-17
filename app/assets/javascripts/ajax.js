@@ -50,10 +50,10 @@ function checkWeatherCache(path) {
    });
 }
 
+// function getTeamGames(team_name) {
 
-function populateCalendar() {
+//     $.ajax({
+//         url: ""+
+//     })
 
-    $.ajax({
-        url:path
-    })
-}
+// }

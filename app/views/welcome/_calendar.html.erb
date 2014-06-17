@@ -1,5 +1,15 @@
 <!-- Calendar -->
 
+<div>
+    <a href="#" data-dropdown="drop1" class="sport tiny radius button dropdown">Choose a Sport</a><br>
+    <ul id="drop1" data-dropdown-content class="f-dropdown">
+      <li id="baseball">Baseball</li>
+      <li id="football">Football</li>
+    </ul>
+
+</div>
+
+
 <div class="container" class="body-gradient">
       <div class="custom-calendar-wrap custom-calendar-full">
         <div class="custom-header clearfix">
@@ -22,20 +32,27 @@
 
     <script type="text/javascript">
       $(function() {
-
+        // defining calendar variables
         var cal = $( '#calendar' ).calendario( {
             onDayClick : function( $el, $contentEl, dateProperties ) {
 
               for( var key in dateProperties ) {
                 console.log( key + ' = ' + dateProperties[ key ] );
               }
-
             },
+            // calendario paramater for starting object
             caldata : null
-          } ),
-          $month = $( '#custom-month' ).html( cal.getMonthName() ),
-          $year = $( '#custom-year' ).html( cal.getYear() );
+          } );
+        var $month = $( '#custom-month' ).html( cal.getMonthName() );
+        var $year = $( '#custom-year' ).html( cal.getYear() );
 
+        // function grabbing current month/year for use in navigation clicks
+        function updateMonthYear() {
+          $month.html( cal.getMonthName() );
+          $year.html( cal.getYear() );
+        }
+
+        // click functions for navigating calendar
         $( '#custom-next' ).on( 'click', function() {
           cal.gotoNextMonth( updateMonthYear );
         } );
@@ -46,10 +63,6 @@
           cal.gotoNow( updateMonthYear );
         } );
 
-        function updateMonthYear() {
-          $month.html( cal.getMonthName() );
-          $year.html( cal.getYear() );
-        }
 
         // you can also add more data later on. As an example:
         /*
@@ -65,7 +78,31 @@
 
         } );
         */
-        $("li").click(function() {
+        // gets sport to populate team dropdown.
+        var $sport = "";
+        $("li .sport").click(function(){
+
+          $sport = $(this).attr("id")
+          $teams = []
+          if ($sport === "baseball") {
+            $teams = baseballTeams;
+          }
+          else if ($sport === "football") {
+            $teams = footballTeams;
+          }
+          $teams.forEach(function(team) {
+            team_id = team.split(" ").join("_")
+            $("ul .teams").append("<li id=\""+team_id+"\">"+team+"</li>");
+          })
+
+          })
+
+
+
+
+
+
+        $("li .team").click(function() {
           // caldata : null;
 
           $(".fc-content").removeClass("fc-content");
@@ -78,5 +115,3 @@
         });
       });
     </script>
-
-<!-- Calendar -->

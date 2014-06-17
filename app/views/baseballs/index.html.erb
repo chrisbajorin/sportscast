@@ -44,7 +44,6 @@
   var baseballs = <%= @baseballs.to_json.html_safe %>
 </script>
 
-<%= link_to 'New Baseball', new_baseball_path %>
 
 <!-- linking to all css and js in the asset pipeline. it only works here and not in the laypout/app.html.erb ?  -->
 <%= stylesheet_link_tag('application', :media => 'all') %>

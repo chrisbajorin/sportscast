@@ -1,24 +1,10 @@
 
 $(document).ready(function(){
 
-  // For box plot begins:
-  var margin = {top: 10, right: 50, bottom: 20, left: 50},
-  width = 120 - margin.left - margin.right,
-  height = 500 - margin.top - margin.bottom;
-
-
-  var min = Infinity,
-  max = -Infinity;
-
-  var chart = d3.box()
-  .whiskers(iqr(1.3))
-  .width(width)
-  .height(height);
-  // For box plot ends
 
   //For axis begins:
   var margin = {top: 20, right: 0, bottom: 20, left: 0},
-  width = 960 - margin.left - margin.right,
+  width = 1000 - margin.left - margin.right,
   height = 500 - margin.top - margin.bottom;
 
   var formatNumber = d3.format(".1f");
@@ -28,7 +14,7 @@ $(document).ready(function(){
   .range([height, 0]);
 
   var x = d3.time.scale()
-  .domain([new Date(2005, 7, 1), new Date(2014, 6, 1)])
+  .domain([new Date(2000, 7, 1), new Date(2014, 6, 1)])
   .range([0, width]);
 
   var xAxis = d3.svg.axis()
@@ -43,7 +29,9 @@ $(document).ready(function(){
   .tickFormat(formatTemperature)
   .orient("right");
 
+//Axes plots
   var svg = d3.select("body").append("svg")
+  .attr("class", "axes_graph")
   .attr("width", width + margin.left + margin.right)
   .attr("height", height + margin.top + margin.bottom)
   .append("g")
@@ -88,16 +76,31 @@ $(document).ready(function(){
 
   //For axis ends
 
+  // For box plot begins:
+  var margin = {top: 10, right: 50, bottom: 20, left: 50},
+  width = 120 - margin.left - margin.right,
+  height = 500 - margin.top - margin.bottom;
+
+
+  var min = Infinity,
+  max = -Infinity;
+
+  var chart = d3.box()
+  .whiskers(iqr(1.3))
+  .width(width)
+  .height(height);
+  // For box plot ends
+
 
   // d3.json("/wunderground.json", function(error, json) {
-  //   // var data; // a globals
+    //   // var data; // a globals
 
-  //   // data = json;
-  //   console.log(json);
-  //   // visualizeit();
+    //   // data = json;
+    //   console.log(json);
+    //   // visualizeit();
   // });
 
-  // Need to convert this to json
+  // Data
   d3.csv("/morley.csv", function(error, csv) {
     var data = [];
     console.log(csv);
@@ -117,19 +120,20 @@ $(document).ready(function(){
 
           chart.domain([min, max]);
 
-//svg append for box plot
-   svg.selectAll("svg")
+          //svg append for box plot
+          var svg = d3.select("body").selectAll("svg")
+        // svg.selectAll("axes_graph")
           .data(data)
           .enter().append("svg")
           .attr("class", "box")
-          .attr("box", 3.5)
+          // .attr("box", 3.5)
           .attr("width", width + margin.left + margin.right)
           .attr("height", height + margin.bottom + margin.top)
           .append("g")
           .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
           .call(chart);
 
-//original box plot append box
+          //original box plot append box
           // var svg = d3.select("body").selectAll("svg")
           // .data(data)
           // .enter().append("svg")
@@ -170,9 +174,58 @@ $(document).ready(function(){
                   return [i, j];
                 };
               }
+//d3 graphic part ends
+
+//d3 DATA Calls
+function splitToNumArray(string){
+    var results_array = [];
+    var temp_array = string.split(",");
+    temp_array.forEach(function(num) {
+        results_array.push(parseFloat(num));
+    });
+    results_array.forEach(function(x,i) {
+        if (isNaN(x)) {
+            results_array[i] = -1;
+        }
+    })
+    return results_array;
+}
+
+function checkWeatherCache(path) {
+    var $weatherList = $("#weather-list");
+
+    $.ajax({
+        url: path,
+        type: "GET",
+        dataType: "json"
+    }).done(function(data) {
+        console.log(data)
+
+        data.forEach(function(weather){
+            console.log(weather)
+            var weatherTemplate = _.template($("#weatherTemplate").html(), weather);
+            $weatherList.append(weatherTemplate);
+        })
+   });
+}
 
 
-            });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            }); //document ready ends
+
 
 
 

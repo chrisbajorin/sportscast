@@ -16,9 +16,11 @@
 </head>
 <body>
 
+     <div class="bkgd_image"> </div>
+
+     <%= image_tag("sportcast_logo.png", class: "logo") %>
+
 <div id="dialog" title="Sign up">
-
-
 
 <%= form_for @user do |f| %>
   <% if @user.errors.any? %>

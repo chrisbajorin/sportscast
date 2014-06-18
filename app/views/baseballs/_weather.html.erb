@@ -26,10 +26,7 @@ we want more than 6 years.
 <h1>precipiation string: <%%= precip_array %></h1>
 
 
-<div id="day-summary"></div>
-<svg id="weather-chart"></svg>
-
-<%% displayTemperatureD3(min_temp_array) %>
-<%% displayTemperatureD3(mean_temp_array) %>
-<%% displayTemperatureD3(max_temp_array) %>
+<%% temperatureArray = combineMinMeanMax(min_temp_array, mean_temp_array, max_temp_array) %>
+<%% console.log(temperatureArray) %>
+<h1> temp array: <%%= temperatureArray %></h1>
 

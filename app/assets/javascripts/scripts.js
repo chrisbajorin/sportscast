@@ -114,7 +114,7 @@ function makeBoxes(dataset) {
   })
 
 
-  var svg = d3.select(".bkgd_image_dark").append("svg")
+  var svg = d3.select(".bkgd_image_light").append("svg")
   .attr("class", "weather-svg");
 
   // var g = d3.select("weather-svg")

@@ -64,3 +64,10 @@ var footballTeams = ["Seattle Seahawks",
  "Jacksonville Jaguars",
  "New Orleans Saints",
  "New England Patriots"];
+
+
+var chartDataSet = [
+[12,15,20],
+[15,16,25],
+[10,13,18]
+]

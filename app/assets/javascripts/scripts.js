@@ -57,3 +57,76 @@ $(document).foundation({
         active_class: 'open'
     }
 });
+
+
+function makeBoxes(dataset) {
+
+
+  var height = 300,
+      width = 800,
+      barPad = 60,
+      gWidth = width /dataset.length,
+      barWidth = gWidth - barPad,
+      dataObjects = [];
+
+  var absMin = Infinity,
+      absMax = -Infinity;
+
+  dataset.forEach(function(d){
+    if (d[0] < absMin) {
+      absMin = d[0];
+    }
+    if (d[2] > absMax) {
+      absMax = d[2];
+    }
+  });
+
+  var pixPerTemp = height / (absMax - absMin);
+
+    dataset.forEach(function(d,i){
+  var min = d[0],
+      mean = d[1],
+      max = d[2],
+      rects = [],
+      minRect = {},
+      maxRect = {};
+
+  minRect['rx'] = i * gWidth
+  minRect['ry'] = pixPerTemp * (absMax - mean)
+  minRect['rheight'] = pixPerTemp * (mean-min)
+  minRect['rwidth'] =  barWidth
+  minRect['color'] = 'blue';
+
+  maxRect['rx'] = i * gWidth
+  maxRect['ry'] = pixPerTemp * (absMax - max)
+  maxRect['rheight'] = pixPerTemp * (max-mean);
+  maxRect['rwidth'] = barWidth;
+  maxRect['color'] = 'red';
+  rects.push(minRect, maxRect);
+
+  dataObjects.push(rects);
+  })
+
+
+    var svg = d3.select("body").append("svg")
+      .attr("class", "weather-svg")
+
+    var g = svg.selectAll("g")
+        .data(dataObjects)
+        .enter()
+        .append("g")
+        .attr("class", "year-g")
+        .attr("id", function(d,i) {
+           return "g-" + i;
+         })
+
+    g.selectAll("rect")
+        .data(function(d) {return d; })
+        .enter()
+        .append("rect")
+        .attr("x", function(d) { return d.rx})
+        .attr("y", function(d) { return d.ry})
+        .attr("height", function(d) { return d.rheight})
+        .attr("width", function(d) {return d.rwidth})
+    .style("fill", function(d) { return d.color })
+}

@@ -10,10 +10,15 @@ h1, h2, h3, h4, h5 h6 {
   color: RGBA(232, 232, 232, 1);
 }
 
-p, ol, ul, td, ul, li {
+p, ol, ul, td, {
   font-family: "Helvetica Neue", verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
+}
+
+ul, li {
+  color: #fff;
+  letter-spacing: 0.0725em;
 }
 
 pre {
@@ -99,8 +104,22 @@ div {
 
 .small_logo {
   width: 100%;
-  margin-top: 12px;
+  margin-top: 14px;
   margin-left: 10px;
   left: 0;
   right: 0;
 }
+
+.sports_button {
+  position: absolute;
+  top: 10px;
+  left: 150px;
+}
+
+.teams_button {
+  position: absolute;
+  top: 10px;
+  left: 340px;
+}
+
+

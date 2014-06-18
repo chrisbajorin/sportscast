@@ -18,8 +18,7 @@ p, ol, ul, td, {
 
 ul, li {
   color: #fff;
-  letter-spacing: 0.0725em;
-  text-transform: capitalize;
+  letter-spacing: 0.0825em;
 }
 
 pre {
@@ -141,3 +140,8 @@ div {
   background-color: default;
 }
 
+.f-dropdown li {
+  line-height: 1.25rem;
+  padding-left: 10px;
+  text-transform: uppercase;
+}

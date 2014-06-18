@@ -4,7 +4,7 @@ $(function() {
 
   //For axis begins:
   var margin = {top: 20, right: 0, bottom: 20, left: 0},
-  width = 1500 - margin.left - margin.right,
+  width = 1350 - margin.left - margin.right,
   height = 500 - margin.top - margin.bottom;
 
   var formatNumber = d3.format(".1f");
@@ -48,7 +48,7 @@ $(function() {
 
 //Range for y axis
   setTimeout(function() {
-    y.domain([0, 80e6]);
+    y.domain([0, 100e6]);
 
     gy.transition()
     .duration(2500)

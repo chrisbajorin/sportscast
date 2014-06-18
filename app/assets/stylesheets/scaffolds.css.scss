@@ -122,4 +122,13 @@ div {
   left: 340px;
 }
 
+.disabled {
+  color: black;
+  background-color: black;
+}
+
+.disabled:hover {
+  color: default;
+  background-color: default;
+}
 

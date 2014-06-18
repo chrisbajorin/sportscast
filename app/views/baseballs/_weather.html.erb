@@ -15,6 +15,7 @@ we want more than 6 years.
 <%% humidity_array = splitToNumArray(humidity) %>
 <%% precip_array = splitToNumArray(precipitation) %>
 
+<!--
 <h1>min temp array: <%%= min_temp_array %></h1>
 <h1>mean temp array: <%%= mean_temp_array %></h1>
 <h1>max temp array: <%%= max_temp_array %></h1>
@@ -24,12 +25,10 @@ we want more than 6 years.
 <h1>cloud cover string: <%%= cloud_cover_array %></h1>
 <h1>humidity string: <%%= humidity_array %></h1>
 <h1>precipiation string: <%%= precip_array %></h1>
+ -->
 
+<%% dataset = combineMinMeanMax(min_temp_array, mean_temp_array, max_temp_array) %>
 
-<div id="day-summary"></div>
-<svg id="weather-chart"></svg>
+<%%= makeBoxes(dataset) %>
 
-<%% displayTemperatureD3(min_temp_array) %>
-<%% displayTemperatureD3(mean_temp_array) %>
-<%% displayTemperatureD3(max_temp_array) %>
-
+<%%= make_axes() %>

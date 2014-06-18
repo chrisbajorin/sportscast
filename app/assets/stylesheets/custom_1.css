@@ -2,7 +2,7 @@
 /* this controls positioning */
 .custom-calendar-full {
 	position: absolute;
-	top: 0px;
+	top: 5px;
 	bottom: 0px;
 	left: 0px;
 	width: 100%;

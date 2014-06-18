@@ -18,8 +18,7 @@ p, ol, ul, td, {
 
 ul, li {
   color: #fff;
-  letter-spacing: 0.0725em;
-  text-transform: capitalize;
+  letter-spacing: 0.0825em;
 }
 
 pre {
@@ -98,7 +97,13 @@ div {
   height: 100%;
   background: url(bkgd_blur_dark.jpg) fixed no-repeat;
   background-size: cover;
-  position: relative;
+}
+
+.bkgd_image_light {
+  width: 100%;
+  height: 100%;
+  background: url(bkgd_light.jpg) fixed no-repeat;
+  background-size: cover;
 }
 
 .logo {
@@ -141,3 +146,8 @@ div {
   background-color: default;
 }
 
+.f-dropdown li {
+  line-height: 1.25rem;
+  padding-left: 10px;
+  text-transform: uppercase;
+}

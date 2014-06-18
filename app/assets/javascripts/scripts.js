@@ -136,14 +136,22 @@ function makeBoxes(dataset) {
   .enter()
   // .attr("height", function(d) { return d.rheight})
   .append("rect")
-  .attr("x", function(d) { return d.rx})
-  .attr("y", function(d) { return d.rheight - d.ry})
+  .attr("x", function(d) { return d.rx + 60})
+  .attr("y", function(d,i) {
+    if (i === 0) {
+      return d.ry ;
+    } else {
+      return d.ry + d.rheight;
+    };
+  })
+    // return d.rheight - d.ry})
   .attr("height", 0)
   .attr("width", function(d) {return d.rwidth})
+  .style("fill", "yellow")
   .transition()
-  .duration(1200)
+  .duration(1000)
   .ease("linear")
-  .attr("x", function(d) { return d.rx})
+  .attr("x", function(d) { return d.rx + 60})
   .attr("y", function(d) { return d.ry})
   .attr("height", function(d) { return d.rheight})
   .attr("width", function(d) {return d.rwidth})
@@ -178,7 +186,7 @@ function make_axes(dataset){
   .range([height, 0]);
 
   var x = d3.time.scale()
-  .domain([new Date(2007, 7, 1), new Date(2013, 7, 1)])
+  .domain([new Date(2013, 7, 1), new Date(2007, 7, 1)])
   .range([0, width]);
 
   var xAxis = d3.svg.axis()

@@ -129,7 +129,14 @@ function makeBoxes(dataset) {
   g.selectAll("rect")
   .data(function(d) {return d; })
   .enter()
+  // .attr("height", function(d) { return d.rheight})
   .append("rect")
+  .attr("x", function(d) { return d.rx})
+  .attr("y", function(d) { return d.rheight - d.ry})
+  .attr("height", 0)
+  .attr("width", function(d) {return d.rwidth})
+  .transition()
+  .duration(1000)
   .attr("x", function(d) { return d.rx})
   .attr("y", function(d) { return d.ry})
   .attr("height", function(d) { return d.rheight})
@@ -155,7 +162,7 @@ function make_axes(dataset){
   });
 
   var margin = {top: 20, right: 0, bottom: 20, left: 0},
-  width = 1300 - margin.left - margin.right,
+  width = 600 - margin.left - margin.right,
   height = 500 - margin.top - margin.bottom;
 
   var formatNumber = d3.format(".1f");

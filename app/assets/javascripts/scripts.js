@@ -115,9 +115,14 @@ function makeBoxes(dataset) {
 
 
   var svg = d3.select("body").append("svg")
-  .attr("class", "weather-svg")
+  .attr("class", "weather-svg");
+
+  var g = d3.select("weather-svg")
+  .append("g")
+  .attr("class", "graph-container")
 
   var g = svg.selectAll("g")
+  // var g = d3.select("weather-svg")
   .data(dataObjects)
   .enter()
   .append("g")
@@ -136,7 +141,8 @@ function makeBoxes(dataset) {
   .attr("height", 0)
   .attr("width", function(d) {return d.rwidth})
   .transition()
-  .duration(1000)
+  .duration(1200)
+  .ease("linear")
   .attr("x", function(d) { return d.rx})
   .attr("y", function(d) { return d.ry})
   .attr("height", function(d) { return d.rheight})

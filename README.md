@@ -56,6 +56,8 @@ Welcome to our app  **SPORTSCAST**. Our aim is to give users a general idea of w
 
 [GITHUB](https://github.com/cdbajorin/sportscast) https://github.com/cdbajorin/sportscast
 
+[TRELLO](https://trello.com/b/vpsIlABA/project-2) https://trello.com/b/vpsIlABA/project-2
+
 [HEROKU](https://sportscast.herokuapp.com) https://sportscast.herokuapp.com
 
 

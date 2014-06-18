@@ -46,7 +46,7 @@ $(function() {
   .attr("transform", "translate(0," + height + ")")
   .call(xAxis);
 
-//Range for y axis
+  //Range for y axi()
   setTimeout(function() {
     y.domain([0, 100e6]);
 
@@ -138,12 +138,31 @@ $(function() {
           //notes: selects to a node of the y-axis
           // var svg = d3.select("svg").append("g")
 
-          var svg = d3.select("svg").append("div")
+          var svg = d3.select("svg")
+          // .append("div")
           // var box = d3.select("svg")
           // svg.append("g")
           .data(data)
           // .enter()
           .enter().append("svg")
+          // .each(function(d) {
+            // var minimum = d3.quantile(d, 0); //minimum number of each object
+            // var new_svg = d3.select(this).append("testclass")
+              // var g = d3.select("testclass");
+              // console.log(g);
+
+            // d3.select("testclass")
+            // .data(data)
+            // .enter().append("svg")
+            // .attr("class", "box")
+            // .attr("width", width + margin.left + margin.right)
+            // .attr("height", height + margin.bottom + margin.top)
+            // .append("g")
+            // .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+            // .call(chart);
+
+            // console.log(minimum);
+          // }) //end of each function
           .attr("class", "box")
           // .attr("box", 3.5)
           .attr("width", width + margin.left + margin.right)
@@ -167,13 +186,13 @@ $(function() {
 
 
           // setInterval(function() {
-          //   svg.datum(randomize).call(chart.duration(1000));
+
           // }, 2000);
         });
 
         // function randomize(d) {
-        //   if (!d.randomizer) d.randomizer = randomizer(d);
-        //     return d.map(d.randomizer);
+          //   if (!d.randomizer) d.randomizer = randomizer(d);
+          //     return d.map(d.randomizer);
         //   }
 
         // function randomizer(d) {
@@ -183,56 +202,57 @@ $(function() {
         //     };
         // }
 
-          // Returns a function to compute the interquartile range.
-          // function iqr(k) {
+        // Returns a function to compute the interquartile range.
+        // function iqr(k) {
           //   return function(d, i) {
-          //     var q1 = d.quartiles[0],
-          //     q3 = d.quartiles[2],
-          //     iqr = (q3 - q1) * k,
-          //     i = -1,
-          //     j = d.length;
-          //     while (d[++i] < q1 - iqr);
-          //       while (d[--j] > q3 + iqr);
-          //         return [i, j];
+            //     var q1 = d.quartiles[0],
+            //     q3 = d.quartiles[2],
+            //     iqr = (q3 - q1) * k,
+            //     i = -1,
+            //     j = d.length;
+            //     while (d[++i] < q1 - iqr);
+            //       while (d[--j] > q3 + iqr);
+            //         return [i, j];
           //       };
-          //     }
-              //d3 graphic part ends
+        //     }
+        //d3 graphic part ends
 
-              //d3 DATA Calls
-              function splitToNumArray(string){
-                var results_array = [];
-                var temp_array = string.split(",");
-                temp_array.forEach(function(num) {
-                  results_array.push(parseFloat(num));
-                });
-                results_array.forEach(function(x,i) {
-                  if (isNaN(x)) {
-                    results_array[i] = -1;
-                  }
-                })
-                return results_array;
-              }
+        //d3 DATA Calls
+        function splitToNumArray(string){
+          var results_array = [];
+          var temp_array = string.split(",");
+          temp_array.forEach(function(num) {
+            results_array.push(parseFloat(num));
+          });
+          results_array.forEach(function(x,i) {
+            if (isNaN(x)) {
+              results_array[i] = -1;
+            }
+          })
+          return results_array;
+        }
 
-              function checkWeatherCache(path) {
-                var $weatherList = $("#weather-list");
+        function checkWeatherCache(path) {
+          var $weatherList = $("#weather-list");
 
-                $.ajax({
-                  url: path,
-                  type: "GET",
-                  dataType: "json"
-                }).done(function(data) {
-                  console.log(data)
+          $.ajax({
+            url: path,
+            type: "GET",
+            dataType: "json"
+          }).done(function(data) {
+            console.log(data)
 
-                  data.forEach(function(weather){
-                    console.log(weather)
-                    var weatherTemplate = _.template($("#weatherTemplate").html(), weather);
-                    $weatherList.append(weatherTemplate);
-                  })
-                });
-              }
+            data.forEach(function(weather){
+              console.log(weather)
+              var weatherTemplate = _.template($("#weatherTemplate").html(), weather);
+              $weatherList.append(weatherTemplate);
+            })
+          });
+        }
 
 
 
-            }); // end of function
-            </script>
+      }); // end of function
+      </script>
+
 

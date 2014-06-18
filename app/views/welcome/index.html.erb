@@ -1,12 +1,17 @@
-<a href="#" data-dropdown="drop1" class="tiny radius button dropdown">Choose a Sport</a><br>
-<ul id="drop1" data-dropdown-content class="f-dropdown">
-  <li class="sport" id="baseball">Baseball</li>
-  <li class="sport" id="football">Football</li>
-</ul>
 
-<a href="#" data-dropdown="drop2" class=" z-index-dropdown tiny radius button dropdown">Choose a Team</a><br>
-<ul id="drop2" data-dropdown-content class="f-dropdown">
-</ul>
+<div class="sports_button">
+    <a href="#" data-dropdown="drop1" class="tiny radius button dropdown">choose a SPORT</a><br>
+      <ul id="drop1" class="f-dropdown" data-dropdown-content>
+        <li class="sport" id="baseball">BASEBALL</li>
+         <li class="sport" id="football">FOOTBALL</li>
+      </ul>
+</div>
+
+<div class="teams_button">
+    <a href="#" data-dropdown="drop2" class="tiny radius button disabled">choose a SPORT</a><br>
+      <ul id="drop2" data-dropdown-content class="">
+    </ul>
+</div>
 
 
 <%= render "calendar" %>
@@ -16,5 +21,3 @@
 <%= stylesheet_link_tag('application', :media => 'all') %>
 <%= javascript_include_tag "application" %>
 
-<!-- To show the d3 graphs -->
-<%= render 'd3graphs' %>

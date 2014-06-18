@@ -140,7 +140,19 @@ function makeBoxes(dataset) {
 
 ///////////   AXES  ///////////////////////////
 
-function make_axes(){
+function make_axes(dataset){
+
+  var absMin = Infinity;
+  var absMax = -Infinity;
+
+  dataset.forEach(function(d){
+    if (d[0] < absMin) {
+      absMin = d[0];
+    }
+    if (d[2] > absMax) {
+      absMax = d[2];
+    }
+  });
 
   var margin = {top: 20, right: 0, bottom: 20, left: 0},
   width = 1300 - margin.left - margin.right,
@@ -149,7 +161,7 @@ function make_axes(){
   var formatNumber = d3.format(".1f");
 
   var y = d3.scale.linear()
-  .domain([0, 100e6])
+  .domain([absMin, absMax])
   .range([height, 0]);
 
   var x = d3.time.scale()
@@ -190,7 +202,7 @@ function make_axes(){
   .attr("dy", -4);
 
   function formatTemperature(d) {
-    var s = formatNumber(d / 1e6);
+    var s = formatNumber(d / 1);
     return d === y.domain()[1]
     ?  s + " degrees"
     : s;

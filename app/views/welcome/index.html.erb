@@ -15,6 +15,9 @@
 
 <%= render "calendar" %>
 
+<script type="text/javascript">
+    var user = <%= @current_user.to_json.html_safe %>
+</script>
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <%= stylesheet_link_tag('application', :media => 'all') %>

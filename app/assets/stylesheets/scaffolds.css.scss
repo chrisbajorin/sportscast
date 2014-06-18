@@ -128,12 +128,14 @@ div {
   position: absolute;
   top: 10px;
   left: 150px;
+  font-weight: bold;
 }
 
 .teams_button {
   position: absolute;
   top: 10px;
-  left: 340px;
+  left: 280px;
+  font-weight: bold;
 }
 
 .disabled {
@@ -150,4 +152,9 @@ div {
   line-height: 1.25rem;
   padding-left: 10px;
   text-transform: uppercase;
+}
+
+.button {
+  font-weight: bold;
+  font-size: 1.3em;
 }

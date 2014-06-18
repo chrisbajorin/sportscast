@@ -1,16 +1,5 @@
 /*moved below @font-face to this to font.css.scss*/
 
-/*@font-face {
-	font-family: 'icomoon';
-	src:url('fonts/icomoon.eot');
-	src:url('fonts/icomoon.eot?#iefix') format('embedded-opentype'),
-		url('fonts/icomoon.svg#icomoon') format('svg'),
-		url('fonts/icomoon.woff') format('woff'),
-		url('fonts/icomoon.ttf') format('truetype');
-	font-weight: normal;
-	font-style: normal;
-}*/
-
 .cd-dropdown span[class^="icon-"]:before,
 .cd-dropdown span[class*=" icon-"]:before {
 	font-family: 'icomoon';

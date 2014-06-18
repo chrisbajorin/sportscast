@@ -70,9 +70,11 @@
 
     // gets sport to populate team dropdown.
     var $sport = '';
-    $("li.sport").click(function(){
+    $("li.sport").click(function(e){
+      // get the sport from the clicked button
       $sport = $(this).attr("id");
       $teams = []
+      // set the teams based on the sport
       if ($sport === "baseball") {
         $teams = baseballTeams;
       }
@@ -80,18 +82,29 @@
         $teams = footballTeams;
       }
 
+      //ensure team drop down now enabled and title set
+      $("div.teams_button > a")
+         .addClass("dropdown")
+         .removeClass("disabled")
+         .text("choose a " + $sport + " TEAM");
+      //allow team drop down click
+      $("#drop2").addClass("f-dropdown");
+
+
+      // clear out the teams from the team dropdown
       var element = document.getElementById("drop2");
       while (element.firstChild) {
         element.removeChild(element.firstChild);
       }
 
+      // add the new set of teams to the team dropdown
       $teams.forEach(function(team) {
         team_id = team.split(" ").join("_")
         // console.log(team_id);
         $("ul#drop2").append("<li class='team' id=\""+team_id+"\">"+team+"</li>");
-      })
+      });
 
-
+      // add a click function to the team lis
       $("li.team").click(function() {
         var team = $(this).attr("id");
         console.log($sport)
@@ -101,7 +114,7 @@
             type: "GET",
             dataType: "json"
         }).done(function(data){
-          console.log(data);
+          // console.log(data);
           var gameObjects = {}
           data.forEach(function(game){
               var dateArray = game.date.split("-");
@@ -109,18 +122,26 @@
               gameObjects[dateString] = ("<a class='calendar_entry' href=\""+$sport+"s/"+game.id+"\"><p>" + game.away_team + " @<br> " + game.home_team + "</p><p class='game_time'>" + game.time + "</p></a>");
             // console.log(game.date)
           });
+          console.log(gameObjects)
           cal.setData(gameObjects)
         });
-      // var games = getTeamGames($sport, team);
 
-      // team_id = $(this).attr('id');
-      // $.ajax({
-      //   url=
-      // })
-      // objects = sortCalendarData(baseballs, team_id);
-      // cal.setData(objects);
-      // console.log(objects);
+        // var games = getTeamGames($sport, team);
+
+        // team_id = $(this).attr('id');
+        // $.ajax({
+        //   url=
+        // })
+        // objects = sortCalendarData(baseballs, team_id);
+        // cal.setData(objects);
+        // console.log(objects);
+
+        //close dropdown
+        $("div.teams_button > a").trigger("click");
       });
+
+      //close sports dropdown
+      $("div.sports_button > a").trigger("click");
     });
   });
 </script>

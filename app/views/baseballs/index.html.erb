@@ -35,15 +35,12 @@
         <li id="Nationals" class="dropdown_styles">Nationals</li>
       </ul>
 
-
 <%= render 'calendar' %>
-
 
 <br>
 <script type="text/javascript">
   var baseballs = <%= @baseballs.to_json.html_safe %>
 </script>
-
 
 <!-- linking to all css and js in the asset pipeline. it only works here and not in the laypout/app.html.erb ?  -->
 <%= stylesheet_link_tag('application', :media => 'all') %>

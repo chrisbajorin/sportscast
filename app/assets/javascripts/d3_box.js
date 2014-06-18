@@ -17,16 +17,16 @@ d3.box = function() {
       min = d[0],
       max = d[n - 1];
 
-      console.log(d)
+      console.log(g)
 
       //////////////////////////////////////////////////////////////////////////////////
-      ///////// g is an array of all the csv with the same starting number /////////////
+      ///////// g is each object of the csv with the same starting number /////////////
       ///////// min is the minimum of each g
       ///////// max is the maximum of each g
       ///////// n is the number in each g
-      ///////// d
+      ///////// d is an array of the csv with the starting number
 
-      console.log(g)
+      // console.log(g)
       // Compute quartiles. Must return exactly 3 elements.
       var quartileData = d.quartiles = quartiles(d);
 
@@ -198,17 +198,17 @@ d3.box = function() {
 //////////////////////////////////////////////
 
 
-      boxTick.enter().append("text")
-      .attr("class", "box")
-      .attr("dy", ".3em")
-      .attr("dx", function(d, i) { return i & 1 ? 6 : -6 })
-      .attr("x", function(d, i) { return i & 1 ? width : 0 })
-      .attr("y", x0)
-      .attr("text-anchor", function(d, i) { return i & 1 ? "start" : "end"; })
-      .text(format)
-      .transition()
-      // .duration(duration)
-      .attr("y", x1);
+      // boxTick.enter().append("text")
+      // .attr("class", "box")
+      // .attr("dy", ".3em")
+      // .attr("dx", function(d, i) { return i & 1 ? 6 : -6 })
+      // .attr("x", function(d, i) { return i & 1 ? width : 0 })
+      // .attr("y", x0)
+      // .attr("text-anchor", function(d, i) { return i & 1 ? "start" : "end"; })
+      // .text(format)
+      // .transition()
+      // // .duration(duration)
+      // .attr("y", x1);
 
 
 

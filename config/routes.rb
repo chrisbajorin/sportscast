@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get 'calendar' => "welcome#index", :as => "calendar"
 
   # root "welcome#index"
-  root "users#new"
+  root "sessions#new"
 
   resources :baseballs, :only => [:index, :show]
   resources :footballs, :only => [:index, :show]

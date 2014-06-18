@@ -52,12 +52,20 @@ body {
 //For d3 axis ends
 
 .weather-svg  {
-  margin-left: 30px;
+  margin-left: 350px;
   margin-top: 100px;
-  margin-right: 2px;
+  margin-right: 20px;
+  position: relative;
 }
 
 .year-g {
   border-style: solid;
-    border-width: 5px;
+  border-width: 5px;
 }
+
+.axes_graph {
+  position: absolute;
+  padding-left: 100px;
+  color: #fff;
+}
+

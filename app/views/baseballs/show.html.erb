@@ -1,11 +1,12 @@
-
 <%= link_to 'Back', baseballs_path %>
 
-<div id="weather-list">
+<div class="bkgd_image_dark">
+  <div id="weather-list">
+  </div>
 </div>
 
-<script>
-$(document).ready(function() {
+  <script>
+  $(document).ready(function() {
   var path = window.location.pathname;
   checkWeatherCache(path);
 

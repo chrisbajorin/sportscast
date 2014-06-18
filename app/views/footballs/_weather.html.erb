@@ -14,7 +14,7 @@ we want more than 6 years.
 <%% cloud_cover_array = splitToNumArray(cloud_cover) %>
 <%% humidity_array = splitToNumArray(humidity) %>
 <%% precip_array = splitToNumArray(precipitation) %>
-
+<!--
 <h1>min temp array: <%%= min_temp_array %></h1>
 <h1>mean temp array: <%%= mean_temp_array %></h1>
 <h1>max temp array: <%%= max_temp_array %></h1>
@@ -24,6 +24,10 @@ we want more than 6 years.
 <h1>cloud cover array: <%%= cloud_cover_array %></h1>
 <h1>humidity array: <%%= humidity_array %></h1>
 <h1>precipiation array: <%%= precip_array %></h1>
+ -->
 
+<%% dataset = combineMinMeanMax(min_temp_array, mean_temp_array, max_temp_array) %>
 
-<%% displayTemperatureD3(min_temp_array) %>
+<%%= makeBoxes(dataset) %>
+
+<%%= make_axes() %>

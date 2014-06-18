@@ -91,12 +91,26 @@ $(function() {
   // For box plot ends
 
 
+
+
+
+////////////////// possibly working... ///////////////////
+
   d3.csv("/morley.csv", function(error, csv) {
     var data = [];
     // console.log(csv);
 
+
+    //   chartDataSet.forEach(function(x,y) {
+
+    //   var ab = Math.floor(x[0]);
+    //   var m = Math.floor(x[1]);
+    //   var yz = Math.floor(x[2]);
+    //   if (yz > max) { max = yz; }
+    //   if (ab < min) { min - ab; }
+    // });
+
     csv.forEach(function(x,y) {
-      // console.log(x);
       var e = Math.floor(x.Expt-1),
       r = Math.floor(x.Run-1),
       s = Math.floor(x.Speed),
@@ -131,9 +145,9 @@ $(function() {
           .data(data)
           // .enter()
           .enter().append("svg")
-          .each(function(d) {
+          // .each(function(d) {
             // var minimum = d3.quantile(d, 0); //minimum number of each object
-            var new_svg = d3.select(this).append("testclass")
+            // var new_svg = d3.select(this).append("testclass")
               // var g = d3.select("testclass");
               // console.log(g);
 
@@ -148,7 +162,7 @@ $(function() {
             // .call(chart);
 
             // console.log(minimum);
-          }) //end of each function
+          // }) //end of each function
           .attr("class", "box")
           // .attr("box", 3.5)
           .attr("width", width + margin.left + margin.right)
@@ -172,7 +186,7 @@ $(function() {
 
 
           // setInterval(function() {
-            //   svg.datum(randomize).call(chart.duration(1000));
+
           // }, 2000);
         });
 
@@ -182,10 +196,10 @@ $(function() {
         //   }
 
         // function randomizer(d) {
-          //   var k = d3.max(d) * .02;
-          //   return function(d) {
-            //     return Math.max(min, Math.min(max, d + k * (Math.random() - .5)));
-          //   };
+        //     var k = d3.max(d) * .02;
+        //     return function(d) {
+        //         return Math.max(min, Math.min(max, d + k * (Math.random() - .5)));
+        //     };
         // }
 
         // Returns a function to compute the interquartile range.

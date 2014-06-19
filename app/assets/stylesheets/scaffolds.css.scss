@@ -117,7 +117,6 @@ div {
 }
 
 .small_logo {
-  width: 100%;
   margin-top: 14px;
   margin-left: 10px;
   left: 0;
@@ -163,8 +162,12 @@ div {
 
 #dialog {
   background: url(grass.jpg) repeat;
-
   font-weight: bold;
 }
 
+
+#dialog > form > p > label {
+  color: #666;
+  text-transform: uppercase;
+}
 

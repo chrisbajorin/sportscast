@@ -127,12 +127,15 @@ div {
   position: absolute;
   top: 10px;
   left: 150px;
+  font-weight: bold;
 }
 
 .teams_button {
   position: absolute;
   top: 10px;
-  left: 340px;
+  left: 280px;
+  font-weight: bold;
+  width: 350px;
 }
 
 .disabled {
@@ -151,14 +154,14 @@ div {
   text-transform: uppercase;
 }
 
+
+.button {
+  font-weight: bold;
+  font-size: 1.3em;
+  }
+
 #dialog {
   background: url(grass.jpg) repeat;
   font-weight: bold;
 }
-
-#dialog > form > p > label {
-  color: #666;
-  text-transform: uppercase;
-}
-
 

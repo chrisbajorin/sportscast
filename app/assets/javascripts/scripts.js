@@ -114,10 +114,15 @@ function makeBoxes(dataset) {
   })
 
 
-  var svg = d3.select("body").append("svg")
-  .attr("class", "weather-svg")
+  var svg = d3.select(".bkgd_image_light").append("svg")
+  .attr("class", "weather-svg");
+
+  // var g = d3.select("weather-svg")
+  // .append("g")
+  // .attr("class", "graph-container")
 
   var g = svg.selectAll("g")
+  // var g = d3.select("weather-svg")
   .data(dataObjects)
   .enter()
   .append("g")
@@ -131,17 +136,26 @@ function makeBoxes(dataset) {
   .enter()
   // .attr("height", function(d) { return d.rheight})
   .append("rect")
-  .attr("x", function(d) { return d.rx})
-  .attr("y", function(d) { return d.rheight - d.ry})
-  .attr("height", 0)
-  .attr("width", function(d) {return d.rwidth})
-  .transition()
-  .duration(1000)
-  .attr("x", function(d) { return d.rx})
-  .attr("y", function(d) { return d.ry})
-  .attr("height", function(d) { return d.rheight})
-  .attr("width", function(d) {return d.rwidth})
-  .style("fill", function(d) { return d.color })
+  .attr("x", function(d) { return d.rx + 60})
+  .attr("y", function(d,i) {
+    if (i === 0) {
+      return d.ry ;
+    } else {
+      return d.ry + d.rheight;
+    };
+  })
+// return d.rheight - d.ry})
+.attr("height", 0)
+.attr("width", function(d) {return d.rwidth})
+.style("fill", "yellow")
+.transition()
+.duration(1000)
+.ease("linear")
+.attr("x", function(d) { return d.rx + 60})
+.attr("y", function(d) { return d.ry})
+.attr("height", function(d) { return d.rheight})
+.attr("width", function(d) {return d.rwidth})
+.style("fill", function(d) { return d.color })
 }
 
 
@@ -149,71 +163,73 @@ function makeBoxes(dataset) {
 
 function make_axes(dataset){
 
-  var absMin = Infinity;
-  var absMax = -Infinity;
+var absMin = Infinity;
+var absMax = -Infinity;
 
-  dataset.forEach(function(d){
-    if (d[0] < absMin) {
-      absMin = d[0];
-    }
-    if (d[2] > absMax) {
-      absMax = d[2];
-    }
-  });
-
-  var margin = {top: 20, right: 0, bottom: 20, left: 0},
-  width = 600 - margin.left - margin.right,
-  height = 500 - margin.top - margin.bottom;
-
-  var formatNumber = d3.format(".1f");
-
-  var y = d3.scale.linear()
-  .domain([absMin, absMax])
-  .range([height, 0]);
-
-  var x = d3.time.scale()
-  .domain([new Date(2007, 7, 1), new Date(2013, 7, 1)])
-  .range([0, width]);
-
-  var xAxis = d3.svg.axis()
-  .scale(x)
-  .ticks(d3.time.years)
-  .orient("bottom");
-
-  var yAxis = d3.svg.axis()
-  .scale(y)
-  .tickSize(width)
-  .tickFormat(formatTemperature)
-  .orient("right");
-
-  var svg = d3.select("svg").append("svg")
-  .attr("width", width + margin.left + margin.right)
-  .attr("height", height + margin.top + margin.bottom)
-  .append("g")
-  .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-  svg.append("g")
-  .attr("class", "x axis")
-  .attr("transform", "translate(0," + height + ")")
-  .call(xAxis);
-
-  var gy = svg.append("g")
-  .attr("class", "y axis")
-  .call(yAxis);
-
-  gy.selectAll("g").filter(function(d) { return d; })
-  .classed("minor", true);
-
-  gy.selectAll("text")
-  .attr("x", 4)
-  .attr("dy", -4);
-
-  function formatTemperature(d) {
-    var s = formatNumber(d / 1);
-    return d === y.domain()[1]
-    ?  s + " degrees"
-    : s;
+dataset.forEach(function(d){
+  if (d[0] < absMin) {
+    absMin = d[0];
   }
+  if (d[2] > absMax) {
+    absMax = d[2];
+  }
+});
+
+var margin = {top: 20, right: 0, bottom: 20, left: 0},
+width = 600 - margin.left - margin.right,
+height = 500 - margin.top - margin.bottom;
+
+var formatNumber = d3.format(".1f");
+
+var y = d3.scale.linear()
+.domain([absMin, absMax])
+.range([height, 0]);
+
+var x = d3.time.scale()
+.domain([new Date(2013, 7, 1), new Date(2007, 7, 1)])
+.range([0, width]);
+
+var xAxis = d3.svg.axis()
+.scale(x)
+.ticks(d3.time.years)
+.orient("bottom");
+
+var yAxis = d3.svg.axis()
+.scale(y)
+.tickSize(width)
+.tickFormat(formatTemperature)
+.orient("right");
+
+var svg = d3.select("svg").append("svg")
+.attr("class", "axes_graph")
+.attr("width", width + margin.left + margin.right)
+.attr("height", height + margin.top + margin.bottom)
+.append("g")
+.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+svg.append("g")
+.attr("class", "x axis")
+.attr("transform", "translate(0," + height + ")")
+.call(xAxis);
+
+var gy = svg.append("g")
+.attr("class", "y axis")
+.call(yAxis);
+
+gy.selectAll("g").filter(function(d) { return d; })
+.classed("minor", true);
+
+gy.selectAll("text")
+.attr("x", 4)
+.attr("dy", -4);
+
+function formatTemperature(d) {
+  var s = formatNumber(d / 1);
+  return d === y.domain()[1]
+  ?  s + " degrees"
+  : s;
+}
 } // end of the function make_axes
+
 
 

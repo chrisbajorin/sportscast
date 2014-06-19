@@ -1,8 +1,8 @@
 ####################### FIRST API 1000 CALLS ####################
 
 
+game_array = Baseball.where("home_team = ?", "Yankees")
 game_array = Football.where("home_team = ?", "New York Giants")
-game = Football.find_by_home_team("New York Giants")
 date_array =[]
 game_array.each do |game|
   mintemp = []
@@ -61,14 +61,14 @@ game_array.each do |game|
           humidity: hum.join(",")
         })
     cache.save
-
+  sleep 40
   else
     puts "entry exists already"
   end
 
 end
 
-  sleep 40
+
 
 ######################### 2nd API 500 CALLS ############################
 

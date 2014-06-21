@@ -60,7 +60,7 @@ $(document).foundation({
 
 
 function makeBoxes(dataset) {
-
+// console.log(dataset)
   var margin = {top: 50, right: 400, bottom: 20, left: 400},
   // padding = 30,
   // width = 400,
@@ -112,7 +112,7 @@ function makeBoxes(dataset) {
 
     dataObjects.push(rects);
   })
-
+  console.log(dataObjects)
 
   var svg = d3.select(".bkgd_image_light").append("svg")
   .attr("class", "weather-svg");
@@ -146,6 +146,8 @@ function makeBoxes(dataset) {
   })
 // return d.rheight - d.ry})
 .attr("height", 0)
+// .attr("y", 0)
+// .attr("x", 0)
 .attr("width", function(d) {return d.rwidth})
 .style("fill", "yellow")
 .transition()

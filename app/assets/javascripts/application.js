@@ -12,11 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require d3.v3
-//= require foundation
 //= require turbolinks
+//= require foundation
 //= require_tree .
 
-
-
-
+// Vendor Files
+//= require d3.v3
+//= require jquery.calendario
+//= require jquery.dropdown
+//= require modernizr.custom.63321

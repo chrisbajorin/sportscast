@@ -29,6 +29,39 @@ we want more than 6 years.
 
 <%% dataset = combineMinMeanMax(min_temp_array, mean_temp_array, max_temp_array) %>
 
+<%= radio_button_tag "weather", "temperature" %>
+<%= label_tag "weather_temperature", "Temperature" %>
+
+
+<%= radio_button_tag "weather", "wind" %>
+<%= label_tag "weather_wind", "Wind" %>
+
+
+<%= radio_button_tag "weather", "precipitation" %>
+<%= label_tag "weather_precipitation", "Precipitation" %>
+
+
 <%%= makeBoxes(dataset) %>
 
 <%%= make_axes(dataset) %>
+
+<script type="text/javascript">
+$(function(){
+
+  $("g.year-g").click(function(){
+
+    var yearIndex = $(this).attr("id");
+    yearIndex = parseInt(yearIndex.replace("g-", ""))
+    console.log(yearIndex)
+
+    console.log(precip_array[yearIndex])
+    var precip_1 = precip_array[yearIndex]
+    $("body").append()
+  })
+
+
+
+
+
+});
+</script>

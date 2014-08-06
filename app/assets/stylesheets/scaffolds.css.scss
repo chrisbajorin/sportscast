@@ -34,7 +34,6 @@ a {
   }
   &:hover {
     color: #fff;
-    background-color: #000;
   }
 }
 
@@ -161,13 +160,40 @@ div {
   }
 
 #dialog {
-  background: url(grass.jpg) repeat;
   font-weight: bold;
 }
 
 
-#dialog > form > p > label {
-  color: #666;
-  text-transform: uppercase;
+.ui-widget-header {
+  background: #71A53D;
 }
 
+.ui-widget-content {
+   background: rgba(255, 255, 255, 0.55);
+}
+
+#login-hover > input:hover {
+  color: #71A53D;
+}
+
+.ui-widget input {
+  background: #E6E6E6;
+}
+
+.ui-widget input {
+  color: black;
+}
+
+#flash_alert {
+  color: white;
+  text-align: center;
+  margin-bottom: 5px;
+  color: #FAFFBD;
+}
+
+#flash_notice {
+  color: white;
+  text-align: center;
+  margin-bottom: 5px;
+  color: #FAFFBD;
+}

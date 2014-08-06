@@ -3,8 +3,9 @@
 // for breaking the database weather strings into number arrays.
 // if NaN, replaces with -1 for easier data manipulation with d3.
 function splitToNumArray(string){
-  var results_array = [];
-  var temp_array = string.split(",");
+  var results_array = [],
+      temp_array = string.split(",");
+
   temp_array.forEach(function(num) {
     results_array.push(parseFloat(num));
   });

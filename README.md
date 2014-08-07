@@ -4,10 +4,10 @@
 Welcome to our app  **SPORTSCAST**. Our aim is to give users a general idea of what the weather will be for upcoming oudoor sporting events that they will attend so they can make plans accordingly.
 
 
-* Registered users will be able to select from major football, baseball and soccer events.
+* Registered users will be able to select from major league football and baseball events.
 * When our users are prompted to choose from a calendar of events **SPORTSCAST** will return gorgeous visual data in the form of charts & graphs of the temperature, precipitation (if any) and general climate of the region at that time, based on data from previous games and dates.
 * **SPORTSCAST** will store search queries and and allow users to share the data with friends and family.
-
+* NOTE: Due to API limitations, data is currently only available on NY sports teams.
 
 
 ## RESOURCES

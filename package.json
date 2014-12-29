@@ -27,7 +27,6 @@
     "express": "4.10.6",
     "method-override": "2.3.0",
     "mongoose": "3.8.15",
-    "morgan": "1.5.0",
     "underscore": "1.7.0"
   },
   "devDependencies": {
@@ -40,6 +39,7 @@
     "grunt-mocha-test": "0.12.4",
     "load-grunt-tasks": "2.0.0",
     "mocha": "2.1.0",
+    "morgan": "1.5.0",
     "time-grunt": "1.0.0"
   },
   "engines": {

@@ -5,14 +5,15 @@
 //
 
 // Modules
-var path = require("path");
+//var path = require("path");
 
 // Packages
-var express = require("express");
+//var express = require("express");
 var bodyParser = require("body-parser");
 var morgan = require("morgan");
 var methodOverride = require("method-override");
 var cookieParser = require("cookie-parser");
+var mongoose = require("mongoose");
 
 // Local dependencies
 
@@ -28,7 +29,8 @@ module.exports = function (app) {
     //
     if (env === "development") {
 
-         app.use(morgan("dev"));
+        app.use(morgan("dev"));
+        mongoose.set("debug", true);
     }
 
     //
@@ -37,6 +39,7 @@ module.exports = function (app) {
     if (env === "integration") {
 
         app.use(morgan("dev"));
+        mongoose.set("debug", true);
     }
 
     //
@@ -46,8 +49,5 @@ module.exports = function (app) {
     app.use(bodyParser.urlencoded({ extended: false}));
     app.use(methodOverride());
     app.use(cookieParser());
-
-
-
 
 };

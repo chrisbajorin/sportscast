@@ -6,20 +6,37 @@ module.exports = function (grunt) {
     require("time-grunt")(grunt);
 
     // load all grunt tasks matching the `grunt-*` pattern
-    require('load-grunt-tasks')(grunt);
+    require("load-grunt-tasks")(grunt);
 
 
     // configurations for grunt packages
     grunt.initConfig({
 
-        // jshint locations
+        //jshint
         jshint: {
-
+            options: {
+                jshintrc: ".jshintrc"
+            },
+            all: [
+                "server.js",
+                "Gruntfile.js",
+                "app/*",
+                "config/*"
+            ]
         },
 
         // watch files
         watch: {
-
+            options: {
+                livereload: true
+            },
+            express: {
+                files: ["server.js", "app/**"],
+                tasks: ["express:dev"],
+                options: {
+                    nospawn: true
+                }
+            }
         },
 
         // express settings
@@ -30,7 +47,6 @@ module.exports = function (grunt) {
                     debug: true
                 }
             }
-
         },
 
         // environmentals
@@ -45,7 +61,7 @@ module.exports = function (grunt) {
     });
 
     // custom tasks
-    grunt.registerTask("startdev", "start server in dev", [
+    grunt.registerTask("startdev", "start server in development", [
         "jshint",
         "env:development",
         "express:dev",
@@ -53,7 +69,6 @@ module.exports = function (grunt) {
     ]);
 
     grunt.registerTask("startint", "startup server in integration", [
-        "jshint",
         "env:integration",
         "express:dev",
         "watch"

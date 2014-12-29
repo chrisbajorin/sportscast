@@ -1,5 +1,4 @@
 "use strict";
-
 //
 // API Routing
 //

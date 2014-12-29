@@ -1,4 +1,7 @@
 "use strict";
+//
+// Server initialization
+//
 
 // Modules
 var fs = require("fs");
@@ -8,17 +11,11 @@ var path = require("path");
 var express = require("express");
 var mongoose = require("mongoose");
 
-
-//
-// Server
-//
-
-// environment
+// Environment
 process.env.NODE_ENV = process.env.NODE_ENV || "development";
-
-// config
 var config = require("./config/config");
-var app = express();
+
+// Database
 var db = mongoose.connect(config.mongo.uri, config.mongo.options);
 var modelsPath = path.join(__dirname, "app/models");
 
@@ -28,6 +25,8 @@ fs.readdirSync(modelsPath).forEach(function (file) {
     }
 });
 
+// Server
+var app = express();
 db.connection.once("connected", function() {
 
     app.use(function(req, res, next) {
@@ -37,6 +36,7 @@ db.connection.once("connected", function() {
 
     // Express settings
     require("./config/express")(app);
+    process.env.PORT = config.port;
 
     // API routes
     require("./app/api_routes")(app);

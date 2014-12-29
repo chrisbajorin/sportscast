@@ -12,6 +12,27 @@ module.exports = function (grunt) {
     // configurations for grunt packages
     grunt.initConfig({
 
+        // jshint locations
+        jshint: {
+
+        },
+
+        // watch files
+        watch: {
+
+        },
+
+        // express settings
+        express: {
+            dev: {
+                options: {
+                    script: "server.js",
+                    debug: true
+                }
+            }
+
+        },
+
         // environmentals
         env: {
             development: {
@@ -21,11 +42,20 @@ module.exports = function (grunt) {
                 NODE_ENV: "integration"
             }
         }
-
     });
 
-
     // custom tasks
-    //grunt.registerTask('default', []);
+    grunt.registerTask("startdev", "start server in dev", [
+        "jshint",
+        "env:development",
+        "express:dev",
+        "watch"
+    ]);
 
+    grunt.registerTask("startint", "startup server in integration", [
+        "jshint",
+        "env:integration",
+        "express:dev",
+        "watch"
+    ]);
 };

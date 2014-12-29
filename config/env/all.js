@@ -7,7 +7,7 @@ var rootPath = path.normalize(__dirname + "../..");
 
 module.exports = {
     root: rootPath,
-    port: process.env.PORT || 5000,
+    port: 3000,
     mongo: {
         options: {
             db: {

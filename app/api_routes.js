@@ -3,11 +3,9 @@
 // API Routing
 //
 
+var gamesWebController = require("./webcontrollers/gamewebcontroller");
+
 module.exports = function (app) {
 
-    app.get("/", function(req, res) {
-        console.log(req);
-        console.log(res);
-    });
-
+    app.get("/api/games", gamesWebController.findAllGames);
 };

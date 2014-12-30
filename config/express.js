@@ -45,7 +45,7 @@ module.exports = function (app) {
     //
     // Shared
     //
-    app.use(bodyParser.json()); // move bodyParser to api routes as middleware?
+    //app.use(bodyParser.json()); // move bodyParser to api routes as middleware?
     app.use(bodyParser.urlencoded({ extended: false}));
     app.use(methodOverride());
     app.use(cookieParser());

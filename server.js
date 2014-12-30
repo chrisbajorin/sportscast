@@ -36,7 +36,7 @@ db.connection.once("connected", function() {
 
     // Express settings
     require("./config/express")(app);
-    process.env.PORT = config.port;  // in case it's needed when the app is unavailable
+    process.env.PORT = config.port;  // in case it's needed when `app` is unavailable
 
     // API routes
     require("./app/api_routes")(app);
